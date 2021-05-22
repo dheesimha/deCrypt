@@ -16,7 +16,7 @@ input {
   width: 100%;
   background-color: #fff;
   min-height: 100vh;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .forms-container {
@@ -150,6 +150,21 @@ form.sign-in-form {
 .btn:hover {
   background-color: #8f38b1;
 }
+
+#sign-in-btn {
+  margin: 15px;
+}
+
+#sign-in-btn:hover {
+  background-color: #c693da;
+  color: #000;
+}
+
+#sign-up-btn:hover {
+  background-color: #c693da;
+  color: #000;
+}
+
 .panels-container {
   position: absolute;
   height: 100%;
