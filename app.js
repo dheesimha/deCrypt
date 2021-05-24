@@ -2,6 +2,22 @@
 
 const express = require("express");
 
+const app = express();
+
+const https = require("https");
+
+app.use(express.urlencoded({extended : true}));
+
+app.get("/",function(req,res)
+{
+  res.sendFile("index.html");
+});
+
+
+app.post("/",function(req,res)
+{
+  res.send();
+});
 
 
 
@@ -10,7 +26,10 @@ const express = require("express");
 
 
 
-
+app.listen(3000,function()
+{
+  console.log("Server has started on port 3000");
+});
 
 
 
