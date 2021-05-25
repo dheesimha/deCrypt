@@ -11,17 +11,12 @@ app.set("view engine", "ejs");
 
 app.use(express.urlencoded({ extended: true }));
 
-//Homepage.js
-const sign_in_btn = document.querySelector("#sign-in-btn");
-const sign_up_btn = document.querySelector("#sign-up-btn");
-const container = document.querySelector(".container");
+// Login route
 
-sign_up_btn.addEventListener("click", () => {
-  container.classList.add("sign-up-mode");
+app.route("/login").get((req, res) => {
+  res.render("login");
 });
 
-sign_in_btn.addEventListener("click", () => {
-  container.classList.remove("sign-up-mode");
+app.listen(3000, () => {
+  console.log("Server started on port 3000");
 });
-
-//End of Homepage.js
