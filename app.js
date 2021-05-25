@@ -1,37 +1,15 @@
-//jshint esversion:6
-
 const express = require("express");
+const bodyParser = require("body-parser");
+const ejs = require("ejs");
+const mongoose = require("mongoose");
 
 const app = express();
 
-const https = require("https");
+app.use(express.static("public"));
 
-app.use(express.urlencoded({extended : true}));
+app.set("view engine", "ejs");
 
-app.get("/",function(req,res)
-{
-  res.sendFile("index.html");
-});
-
-
-app.post("/",function(req,res)
-{
-  res.send();
-});
-
-
-
-
-
-
-
-
-app.listen(3000,function()
-{
-  console.log("Server has started on port 3000");
-});
-
-
+app.use(express.urlencoded({ extended: true }));
 
 //Homepage.js
 const sign_in_btn = document.querySelector("#sign-in-btn");
