@@ -241,7 +241,6 @@ form.sign-in-form {
   /* transition: 1.8s ease-in-out; */
   border-radius: 50%;
   z-index: 6;
-
 }
 
 .image {
@@ -272,8 +271,7 @@ form.sign-in-form {
 
 .right-panel {
   pointer-events: all;
-  padding: 3rem 20% 2rem 20%;
-  
+  padding: 3rem 12% 2rem 17%;
 }
 
 .panel .content {
