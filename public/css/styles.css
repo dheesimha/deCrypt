@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 body,
@@ -241,7 +242,6 @@ form.sign-in-form {
   /* transition: 1.8s ease-in-out; */
   border-radius: 50%;
   z-index: 6;
-
 }
 
 .image {
@@ -272,7 +272,6 @@ form.sign-in-form {
 .right-panel {
   pointer-events: all;
   padding: 3rem 12% 2rem 17%;
-  
 }
 
 .panel .content {
