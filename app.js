@@ -29,7 +29,7 @@ const User = new mongoose.model("User", userSchema);
 app
   .route("/home")
   .get((req, res) => {
-    res.render("track");
+    res.render("home");
   })
   .post((req, res) => {
     const newUser = new User({
@@ -50,6 +50,11 @@ app
 //Track route
 app.route("/track").get((req, res) => {
   res.render("track");
+});
+
+//Register route
+app.route("/register").get((req, res) => {
+  res.render("register");
 });
 
 app.listen(3000, () => {

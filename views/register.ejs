@@ -1,6 +1,35 @@
 <%- include('partials/header') %>
 
-    <!-- Add the registration form here -->
-
+<div class="container">
+    <div class="forms-container">
+        <div class="signin-signup">
+            <form action="/register" method="POST" class="sign-up-form">
+                <h2 class="title">Sign up</h2>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" name="registerUsername" placeholder="Username" />
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" name="registerEmail" placeholder="Email" />
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" name="registerPassword" placeholder="Password" />
+                </div>
+                <input type="submit" class="btn" value="Sign up" />
+            </form>
+        </div>
+    </div>
+    <div class="panels-container">
+      <div class="panel right-panel">
+        <div class="content">
+            <h3>Already have an account?</h3>
+            <button class="btn transparent" id="sign-in-btn"> <a href="./home.ejs">Sign In</a> </button>
+        </div>
+        <img src="/images/img2.svg" class="image" alt="ethereum" />
+       </div>
+    </div>
+</div>
 
     <%- include('partials/footer') %>
