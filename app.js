@@ -18,18 +18,57 @@ mongoose.connect("mongodb://localhost:27017/cryptDB", {
 });
 
 const userSchema = {
-  username: String,
-  email: String,
-  password: String,
+  username: {
+    type: String,
+    required: true,
+  },
+
+  email: {
+    type: String,
+    required: true,
+  },
+
+  password: {
+    type: String,
+    required: true,
+  },
 };
 
 const User = new mongoose.model("User", userSchema);
 
 // Home route
 app
-  .route("/home")
+  .route("/")
   .get((req, res) => {
     res.render("home");
+  })
+  .post((req, res) => {
+    const enteredUsername = req.body.loginUsername;
+    const enteredPassword = req.body.loginPassword;
+
+    User.findOne({ username: enteredUsername }, (err, foundUser) => {
+      if (err) {
+        console.log(err);
+      } else {
+        if (foundUser) {
+          if (foundUser.password === enteredPassword) {
+            res.redirect("track");
+          }
+        }
+      }
+    });
+  });
+
+//Track route
+app.route("/track").get((req, res) => {
+  res.render("track");
+});
+
+//Register route
+app
+  .route("/register")
+  .get((req, res) => {
+    res.render("register");
   })
   .post((req, res) => {
     const newUser = new User({
@@ -46,16 +85,6 @@ app
       }
     });
   });
-
-//Track route
-app.route("/track").get((req, res) => {
-  res.render("track");
-});
-
-//Register route
-app.route("/register").get((req, res) => {
-  res.render("register");
-});
 
 app.listen(3000, () => {
   console.log("Server started on port 3000");

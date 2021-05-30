@@ -1,38 +1,38 @@
 <%- include('partials/header') %>
 
-<!-- Sign Up form  -->
+    <!-- Sign Up form  -->
 
-<div class="container1">
-    <div class="forms-container1">
-        <div class="signin-signup1">
-            <form action="/register" method="POST" class="sign-up-form">
-                <h2 class="title">Sign Up</h2>
-                <div class="input-field">
-                    <i class="fas fa-user"></i>
-                    <input type="text" name="registerUsername" placeholder="Username" />
+    <div class="container1">
+        <div class="forms-container1">
+            <div class="signin-signup1">
+                <form action="/register" method="POST" class="sign-up-form">
+                    <h2 class="title">Sign Up</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" name="registerUsername" placeholder="Username" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" name="registerEmail" placeholder="Email" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" name="registerPassword" placeholder="Password" />
+                    </div>
+                    <input type="submit" class="btn" value="Sign up" />
+                </form>
+            </div>
+        </div>
+        <div class="panels-container1">
+            <div class="panel right-panel">
+                <div class="content1">
+                    <h3>Already have an account?</h3>
+                    <p>Get instant updates on Crypto on one tap</p>
+                    <a href="./"><button class="btn transparent" id="sign-in-btn"> Sign In </button></a>
                 </div>
-                <div class="input-field">
-                    <i class="fas fa-envelope"></i>
-                    <input type="email" name="registerEmail" placeholder="Email" />
-                </div>
-                <div class="input-field">
-                    <i class="fas fa-lock"></i>
-                    <input type="password" name="registerPassword" placeholder="Password" />
-                </div>
-                <input type="submit" class="btn" value="Sign up" />
-            </form>
+                <img src="/images/img2.svg" class="image1" alt="ethereum" />
+            </div>
         </div>
     </div>
-    <div class="panels-container1">
-      <div class="panel right-panel">
-        <div class="content1">
-            <h3>Already have an account?</h3>
-            <p>Get instant updates on Crypto on one tap</p>
-            <a href="./home"><button class="btn transparent" id="sign-in-btn"> Sign In </button></a> 
-        </div>
-        <img src="/images/img2.svg" class="image1" alt="ethereum" />
-       </div>
-    </div>
-</div>
 
     <%- include('partials/footer') %>
