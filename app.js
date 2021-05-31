@@ -3,6 +3,13 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
+const Client = require("coinbase").Client;
+
+//  Commented as API KEY TAKES 48 HOURS TO ACTIVATE
+// const client = new Client({
+//   apiKey: process.env.API_KEY,
+//   apiSecret: process.env.API_SECRET,
+// });
 
 const app = express();
 
@@ -62,6 +69,11 @@ app
 //Track route
 app.route("/track").get((req, res) => {
   res.render("track");
+
+  //  SAMPLE GET REQUEST
+  //  client.getBuyPrice({ currencyPair: "BTC-USD" }, function (err, obj) {
+  //    console.log("total amount: " + obj.data.amount);
+  // });
 });
 
 //Register route
