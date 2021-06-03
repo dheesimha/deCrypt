@@ -1,15 +1,18 @@
 require("dotenv").config();
+const port = 3000;
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
+const kill = require("kill-port");
 const Client = require("coinbase").Client;
 
 //  Commented as API KEY TAKES 48 HOURS TO ACTIVATE
-// const client = new Client({
-//   apiKey: process.env.API_KEY,
-//   apiSecret: process.env.API_SECRET,
-// });
+const client = new Client({
+  apiKey: "API_KEY",
+  apiSecret: "API_SECRET",
+  strictSSL: false
+});
 
 const app = express();
 
@@ -68,12 +71,14 @@ app
 
 //Track route
 app.route("/track").get((req, res) => {
-  res.render("track");
+
 
   //  SAMPLE GET REQUEST
-  //  client.getBuyPrice({ currencyPair: "BTC-USD" }, function (err, obj) {
-  //    console.log("total amount: " + obj.data.amount);
-  // });
+  const price = client.getBuyPrice({ 'currencyPair': 'BTC-INR' }, function (err, obj) {
+    console.log('total amount: ' + obj.data.amount);
+    res.render("track", { Price: price });
+    console.log();
+  });
 });
 
 //Register route
@@ -98,6 +103,12 @@ app
     });
   });
 
-app.listen(3000, () => {
+app.listen(port, () => {
+  // setTimeout(() => {
+  //   kill(port, "tcp")
   console.log("Server started on port 3000");
+  //     .catch(
+  //       console.log("An interruption is caught ,unable to start the server")
+  //     )
+  // }, 1000)
 });

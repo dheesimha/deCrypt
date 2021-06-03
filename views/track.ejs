@@ -2,23 +2,32 @@
 
 <%- include('partials/header') %>
 
+  <div>
+    <h1>
+      <%= Price %>
+    </h1>
+  </div>
+
   <div class="wrap">
     <div class="search">
-       <input type="text" id="myInput" class="searchTerm" onkeyup="myFunction()" placeholder="Search and add your favourite coins..">
-       <button type="submit" class="searchButton">+</button>
+      <input type="text" id="myInput" class="searchTerm" onkeyup="myFunction()"
+        placeholder="Search and add your favourite coins..">
+      <button type="submit" class="searchButton">+</button>
     </div>
- </div>
+  </div>
 
-<ul id="cryptocoins-list">
-  <li><a href="#">Bitcoin</a></li>
-  <li><a href="#">Ethereum</a></li>
-  <li><a href="#">Cardano</a></li>
-  <li><a href="#">Litecoin</a></li>
-  <li><a href="#">Bitcoin Cash</a></li>
-  <li><a href="#">Chainlink</a></li>
-  <li><a href="#">Tether</a></li>
-</ul>
+  <ul id="cryptocoins-list">
+    <li><a href="#">Bitcoin</a></li>
+    <li><a href="#">Ethereum</a></li>
+    <li><a href="#">Cardano</a></li>
+    <li><a href="#">Litecoin</a></li>
+    <li><a href="#">Bitcoin Cash</a></li>
+    <li><a href="#">Chainlink</a></li>
+    <li><a href="#">Tether</a></li>
+  </ul>
 
 
 
-    <%- include('partials/footer') %>
+
+
+  <%- include('partials/footer') %>
