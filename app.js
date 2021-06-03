@@ -22,6 +22,8 @@ app.set("view engine", "ejs");
 
 app.use(express.urlencoded({ extended: true }));
 
+let price;
+
 mongoose.connect("mongodb://localhost:27017/cryptDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -69,15 +71,17 @@ app
     });
   });
 
+
 //Track route
 app.route("/track").get((req, res) => {
 
 
   //  SAMPLE GET REQUEST
-  const price = client.getBuyPrice({ 'currencyPair': 'BTC-INR' }, function (err, obj) {
+  client.getBuyPrice({ 'currencyPair': 'BTC-INR' }, function (err, obj) {
+    price = obj.data.amount;
     console.log('total amount: ' + obj.data.amount);
     res.render("track", { Price: price });
-    console.log();
+
   });
 });
 
