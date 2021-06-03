@@ -2,6 +2,23 @@
 
 <%- include('partials/header') %>
 
-    <h1>This is the tracking page where the user tracks all their fav crypto</h1>
+  <div class="wrap">
+    <div class="search">
+       <input type="text" id="myInput" class="searchTerm" onkeyup="myFunction()" placeholder="Search and add your favourite coins..">
+       <button type="submit" class="searchButton">+</button>
+    </div>
+ </div>
+
+<ul id="cryptocoins-list">
+  <li><a href="#">Bitcoin</a></li>
+  <li><a href="#">Ethereum</a></li>
+  <li><a href="#">Cardano</a></li>
+  <li><a href="#">Litecoin</a></li>
+  <li><a href="#">Bitcoin Cash</a></li>
+  <li><a href="#">Chainlink</a></li>
+  <li><a href="#">Tether</a></li>
+</ul>
+
+
 
     <%- include('partials/footer') %>
