@@ -52,7 +52,7 @@ const User = new mongoose.model("User", userSchema);
 app
   .route("/")
   .get((req, res) => {
-    res.render("home");
+    res.render("login");
   })
   .post((req, res) => {
     const enteredUsername = req.body.loginUsername;
