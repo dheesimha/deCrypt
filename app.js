@@ -48,9 +48,16 @@ const userSchema = {
 
 const User = new mongoose.model("User", userSchema);
 
-// Home route
+//Home route
 app
   .route("/")
+  .get((req, res) => {
+    res.render("home");
+  });
+
+// Login route
+app
+  .route("/login")
   .get((req, res) => {
     res.render("login");
   })
