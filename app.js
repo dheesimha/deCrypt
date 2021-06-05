@@ -50,7 +50,7 @@ const User = new mongoose.model("User", userSchema);
 
 //Home route
 app
-  .route("/home")
+  .route("/")
   .get((req, res) => {
   res.render("home");
   });
