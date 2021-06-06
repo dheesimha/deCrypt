@@ -68,12 +68,13 @@ userSchema.plugin(passportLocalMongoose);
 
 const User = new mongoose.model("User", userSchema);
 
-passport.use(User.createStrategy());
+app
+  .route("/login")
+  .get((req, res) => {
+  res.render("home");
+  });
 
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
-
-// Home route
+// Login route
 app
   .route("/login")
   .get((req, res) => {
