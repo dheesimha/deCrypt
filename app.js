@@ -68,11 +68,10 @@ userSchema.plugin(passportLocalMongoose);
 
 const User = new mongoose.model("User", userSchema);
 
-app
-  .route("/login")
-  .get((req, res) => {
+app.route("/").get((req, res) => {
   res.render("home");
-  });
+})
+
 
 // Login route
 app
