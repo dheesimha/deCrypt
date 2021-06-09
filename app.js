@@ -62,13 +62,13 @@ const userSchema = new mongoose.Schema({
   },
 
   email: {
-    type: String,
-    required: true,
+    type: String
+    // required: true,
   },
 
   password: {
-    type: String,
-    required: true,
+    type: String
+    // required: true,
   },
 });
 
@@ -143,7 +143,7 @@ app
 
       else {
         passport.authenticate("local")(req, res, () => {
-          res.redirect("/track")
+          res.redirect("/login")
 
         })
       }
