@@ -11,7 +11,7 @@
 
   <div class="wrap">
     <div class="search">
-      <input type="text" id="myInput" class="searchTerm" onkeyup="myFunction()"
+      <input type="text" id="myInput" class="searchTerm" onkeyup="searching()"
         placeholder="Search and add your favourite coins..">
       <button type="submit" class="searchButton">+</button>
     </div>
@@ -30,10 +30,11 @@
 
 
 
+  <!--  To toggle between the display of crypto list ,which shows the entire list only when the search bar is clicked else
+  it is hidden -->
 
-  <script>
+  <!-- <script>
 
-    // To toggle between the display of crypto list ,which shows the entire list only when the search bar is clicked else it is hidden
 
     document.addEventListener("click", (event) => {
 
@@ -50,6 +51,6 @@
 
     })
 
-  </script>
+  </script> -->
 
   <%- include('partials/footer') %>
