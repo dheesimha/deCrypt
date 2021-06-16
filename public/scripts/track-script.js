@@ -33,6 +33,9 @@ function searching() {
   }
 }
 
+
+// To toggle between the display of crypto list ,which shows the entire list only when the search bar is clicked else it is hidden
+
 document.addEventListener("click", (event) => {
 
 
