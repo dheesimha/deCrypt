@@ -534,6 +534,7 @@ form.sign-in-form {
 #cryptocoins-list {
   margin-top: 10px;
   padding-top: 8ch;
+  margin-left: 580px;
   display: none;
   grid-auto-flow: row;
   justify-content: flex-start;
