@@ -541,17 +541,6 @@ form.sign-in-form {
   list-style: none;
 }
 
-/* 
-#cryptocoins-list-hover {
-  margin-top: 10px;
-  padding-top: 8ch;
-  display: grid;
-  grid-auto-flow: row;
-  justify-content: flex-start;
-  gap: 15px;
-  list-style: none;
-} */
-
 #cryptocoins-list li a {
   border: 1px solid #ddd; /* Add a border to all links */
   margin-top: -1px; /* Prevent double borders */
