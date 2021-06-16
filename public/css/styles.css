@@ -551,6 +551,8 @@ form.sign-in-form {
   font-size: 18px; /* Increase the font-size */
   color: black; /* Add a black text color */
   display: grid; /* Make it into a block element to fill the whole list */
+  align-items: center;
+  justify-content: center;
 }
 
 #cryptocoins-list li a:hover:not(.header) {
