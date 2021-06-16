@@ -8,29 +8,41 @@
     <%=Price%>
   </p>
 
+  <div class="track-whole-section">
+    <div class="searchAndList">
+      <div class="wrap">
+        <div class="search">
+          <input type="text" id="myInput" class="searchTerm" onkeyup="searching()"
+            placeholder="Search and add your favourite coins..">
+          <button type="submit" class="searchButton">+</button>
+        </div>
+      </div>
 
-  <div class="wrap">
-    <div class="search">
-      <input type="text" id="myInput" class="searchTerm" onkeyup="searching()"
-        placeholder="Search and add your favourite coins..">
-      <button type="submit" class="searchButton">+</button>
+      <ul id="cryptocoins-list">
+        <li><a href="#">Bitcoin</a></li>
+        <li><a href="#">Ethereum</a></li>
+        <li><a href="#">Cardano</a></li>
+        <li><a href="#">Tether</a></li>
+        <li><a href="#">BinanceCoin</a></li>
+        <li><a href="#">Dogecoin</a></li>
+        <li><a href="#">XRP</a></li>
+        <li><a href="#">Polygon</a></li>
+        <li><a href="#">Polkadot</a></li>
+        <li><a href="#">Litecoin</a></li>
+        <li><a href="#">Bitcoin Cash</a></li>
+        <li><a href="#">Chainlink</a></li>
+      </ul>
+
     </div>
+
+    <div class="track-main">
+      <p>hey</p>
+
+    </div>
+
+
   </div>
 
-  <ul id="cryptocoins-list">
-    <li><a href="#">Bitcoin</a></li>
-    <li><a href="#">Ethereum</a></li>
-    <li><a href="#">Cardano</a></li>
-    <li><a href="#">Tether</a></li>
-    <li><a href="#">BinanceCoin</a></li>
-    <li><a href="#">Dogecoin</a></li>
-    <li><a href="#">XRP</a></li>
-    <li><a href="#">Polygon</a></li>
-    <li><a href="#">Polkadot</a></li>
-    <li><a href="#">Litecoin</a></li>
-    <li><a href="#">Bitcoin Cash</a></li>
-    <li><a href="#">Chainlink</a></li>
-  </ul>
 
 
   <%- include('partials/footer') %>

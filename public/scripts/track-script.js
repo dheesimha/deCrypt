@@ -41,6 +41,7 @@ document.addEventListener("click", (event) => {
 
   if (event.path[1].className === "search") {
     document.getElementById("cryptocoins-list").style.display = "grid"
+
   }
 
   else {

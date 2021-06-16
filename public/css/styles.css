@@ -560,6 +560,11 @@ form.sign-in-form {
   color: rgb(255, 255, 255);
 }
 
+.searchAndList {
+  background-color: rgb(134, 134, 134);
+  border: 2px solid red;
+}
+
 /*home.ejs*/
 
 nav {
