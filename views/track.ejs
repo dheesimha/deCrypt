@@ -30,4 +30,26 @@
 
 
 
+
+  <script>
+
+    // To toggle between the display of crypto list ,which shows the entire list only when the search bar is clicked else it is hidden
+
+    document.addEventListener("click", (event) => {
+
+
+      if (event.path[1].className === "search") {
+        document.getElementById("cryptocoins-list").style.display = "grid"
+      }
+
+      else {
+
+        document.getElementById("cryptocoins-list").style.display = "none"
+
+      }
+
+    })
+
+  </script>
+
   <%- include('partials/footer') %>
