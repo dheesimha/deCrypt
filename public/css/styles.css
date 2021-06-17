@@ -13,7 +13,7 @@ input {
   font-family: "Poppins", sans-serif;
 }
 
-.container {
+.container {    /*Belongs to login.ejs */
   position: relative;
   width: 100%;
   background-color: #fff;
@@ -21,7 +21,7 @@ input {
   /* overflow: hidden; */
 }
 
-.container1 {
+.container1 {    /*Belongs to register.ejs */
   position: relative;
   width: 100%;
   background-color: #fff;
@@ -29,7 +29,7 @@ input {
   /* overflow: hidden; */
 }
 
-.forms-container {
+.forms-container {  /*Belongs to login.ejs */
   position: absolute;
   width: 100%;
   height: 100%;
@@ -37,7 +37,7 @@ input {
   left: 0;
 }
 
-.forms-container1 {
+.forms-container1 {   /*Belongs to register.ejs */
   position: absolute;
   width: 100%;
   height: 100%;
@@ -45,7 +45,7 @@ input {
   left: 0;
 }
 
-.signin-signup {
+.signin-signup {     /*Belongs to login.ejs */
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -57,7 +57,7 @@ input {
   z-index: 5;
 }
 
-.signin-signup1 {
+.signin-signup1 {   /*Belongs to register.ejs */
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -308,12 +308,13 @@ form.sign-in-form {
   font-size: 0.8rem;
 }
 
+ /* ANIMATION */
+
 /* .right-panel .image, 
 .right-panel .content {
   transform: translateX(800px);
 }  */
 
-/* ANIMATION */
 
 /* .container.sign-up-mode:before {
   transform: translate(100%, -50%);
@@ -545,18 +546,18 @@ form.sign-in-form {
 #cryptocoins-list li a {
   border: 1px solid #ddd; /* Add a border to all links */
   margin-top: -1px; /* Prevent double borders */
-  background-color: #f6f6f6; /* Grey background color */
-  padding: 12px; /* Add some padding */
+  background-color: #ffffff; /* Coins list color before hovering */
+  padding: 12px; 
   text-decoration: none; /* Remove default text underline */
-  font-size: 18px; /* Increase the font-size */
-  color: black; /* Add a black text color */
+  font-size: 18px; 
+  color: black; 
   display: grid; /* Make it into a block element to fill the whole list */
   align-items: center;
   justify-content: center;
 }
 
 #cryptocoins-list li a:hover:not(.header) {
-  background-color: #d9a2e7; /* Add a hover effect to all links, except for headers */
+  background-color: #b952d3; /* Add a hover effect to all links, except for headers */
   color: rgb(255, 255, 255);
 }
 
@@ -567,11 +568,13 @@ form.sign-in-form {
 
 /*home.ejs*/
 
+/* Navigation bar */
 nav {
   background: #b952d3;
   height: 80px;
   width: 100%;
 }
+/* deCrypt text logo */
 label.logo {
   text-decoration: none;
   color: white;
@@ -580,16 +583,17 @@ label.logo {
   padding: 0 70px;
   font-weight: bold;
 }
-a:visited {
+a:visited { /* Prevent the hyperlinks turning blue after visiting */
   text-decoration: none;
   color: white;
 }
+/* Create account and Login buttons */
 nav ul {
   float: right;
   margin-right: 30px;
 }
 nav ul li {
-  display: inline-block;
+ display: inline-block;   /*Display the list on the same line as adjacent content */
   line-height: 80px;
   margin: 0 5px;
 }
@@ -614,6 +618,9 @@ nav ul li {
   color: #fff;
   background: #d9a2e7;
 }
+/* Buttons styling ends */
+
+/* Image after the navbar */
 .home-img {
   float: right;
   margin-top: 0;
@@ -623,6 +630,7 @@ nav ul li {
   /* display: flex; */
   vertical-align: center;
 }
+/* Description next to the image */
 .intro-home {
   float: left;
   margin-top: 150px;
@@ -639,3 +647,4 @@ nav ul li {
   color: rgb(119, 114, 114);
   font-weight: bold;
 }
+/* End of description */
