@@ -626,7 +626,7 @@ nav ul li {
   margin-top: 0;
   /* margin-left: 600px;*/
   /* width: 100%; */
-  height: 500px;
+  height: 450px;
   /* display: flex; */
   vertical-align: center;
 }
@@ -644,7 +644,7 @@ nav ul li {
   font-weight: bolder;
 }
 .sub-text {
-  color: rgb(119, 114, 114);
+  color: rgb(179, 176, 168);
   font-weight: bold;
 }
 /* End of description */
