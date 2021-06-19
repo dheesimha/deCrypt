@@ -1,7 +1,18 @@
 <!-- User lands on this page after signing in or registering -->
 
 <%- include('partials/header') %>
-
+<div class="navbar">
+  <nav>
+      <label class="logo"><a href="./">deCrypt</a></label>
+      <!--alternate logo-->
+      <ul>
+          <li><a href="./login"><button class="login" type="submit">Logout</button></a></li>
+      </ul>
+      <!-- downloaded gif not working -->
+          <!-- <li><img src="/public/images/user-icon.gif" alt="user-icon" class="user-icon"></li> -->
+      <a href=""><img src="https://img.icons8.com/color/48/000000/circled-user-male-skin-type-5--v2.gif" alt="user-icon" class="user-icon"></a>
+  </nav>
+</div>
   <div class="track-heading">
     <h1>Hey <%=ID%> view your favourite cryptos here</h1>
   </div>
