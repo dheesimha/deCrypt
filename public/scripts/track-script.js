@@ -24,6 +24,8 @@ function searching() {
 
 document.addEventListener("click", (event) => {
 
+  console.log(event)
+
 
   if (event.path[1].className === "search") {
     document.getElementById("cryptocoins-list").style.display = "grid"
