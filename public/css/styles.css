@@ -496,7 +496,7 @@ form.sign-in-form {
 }
 
 .search {
-  float: left;
+  /* float: left; */
   /* width: 100%; */
   position: relative;
   display: flex;
@@ -510,6 +510,8 @@ form.sign-in-form {
   padding: 5px;
   height: 50px;
   border-radius: 5px 0 0 5px;
+  margin-left: 40ch;
+  margin-top: 10ch;
   outline: none;
   color: #b952d3;
 }
@@ -520,6 +522,7 @@ form.sign-in-form {
   border: 1px solid #b952d3;
   background: #b952d3;
   text-align: center;
+  margin-top: 7.68ch;
   color: rgb(255, 255, 255);
   border-radius: 0 5px 5px 0;
   cursor: pointer;
@@ -540,36 +543,6 @@ form.sign-in-form {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-/* Remove default list styling  */
-#cryptocoins-list {
-  margin-top: 10px;
-  padding-top: 8ch;
-  margin-left: 580px;
-  display: none;
-  grid-auto-flow: row;
-  justify-content: flex-start;
-  gap: 15px;
-  list-style: none;
-}
-
-#cryptocoins-list li a {
-  border: 1px solid #ddd; /* Add a border to all links */
-  margin-top: -1px; /* Prevent double borders */
-  background-color: #ffffff; /* Coins list color before hovering */
-  padding: 12px;
-  text-decoration: none; /* Remove default text underline */
-  font-size: 18px;
-  color: black;
-  display: grid; /* Make it into a block element to fill the whole list */
-  align-items: center;
-  justify-content: center;
-}
-
-#cryptocoins-list li a:hover:not(.header) {
-  background-color: #b952d3; /* Add a hover effect to all links, except for headers */
-  color: rgb(255, 255, 255);
 }
 
 .searchAndList {
