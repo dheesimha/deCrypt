@@ -562,7 +562,16 @@ form.sign-in-form {
 
 .searchAndList {
   background-color: rgb(134, 134, 134);
-  border: 2px solid red;
+}
+
+.track_main {
+  margin: 80px;
+  display: flex;
+  visibility: visible;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
 }
 
 /*home.ejs*/
@@ -580,7 +589,7 @@ label.logo {
   padding: 0 70px;
   font-weight: bold;
 }
-a:visited {
+a {
   text-decoration: none;
   color: white;
 }

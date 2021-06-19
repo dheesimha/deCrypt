@@ -41,12 +41,15 @@ document.addEventListener("click", (event) => {
 
   if (event.path[1].className === "search") {
     document.getElementById("cryptocoins-list").style.display = "grid"
+    document.querySelector("div.track_main").style.visibility = "visible"
 
   }
 
   else {
 
     document.getElementById("cryptocoins-list").style.display = "none"
+    document.querySelector("div.track_main").style.visibility = "visible"
+
   }
 
 })
