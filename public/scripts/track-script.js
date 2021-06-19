@@ -25,7 +25,7 @@ function searching() {
 document.addEventListener("click", (event) => {
 
 
-  if (event.path[1].className === "search") {
+  if (event.path[1].className === "search-bar") {
     document.getElementById("cryptocoins-list").style.display = "grid"
     document.querySelector("div.track_main").style.visibility = "visible"
 

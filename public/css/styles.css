@@ -491,13 +491,13 @@ form.sign-in-form {
 
 .search {
   float: left;
-  width: 100%;
+  /* width: 100%; */
   position: relative;
   display: flex;
 }
 
 .searchTerm {
-  width: 100ch;
+  width: 35ch;
   border: 3px solid #b952d3;
   border-right: none;
   font-size: 17px;
@@ -508,8 +508,8 @@ form.sign-in-form {
   color: #b952d3;
 }
 
-.searchButton {
-  width: 170px;
+.addButton {
+  width: 50px;
   height: 50px;
   border: 1px solid #b952d3;
   background: #b952d3;
@@ -520,7 +520,7 @@ form.sign-in-form {
   font-size: 25px;
 }
 
-.searchButton:hover {
+.addButton:hover {
   background-color: rgb(255, 255, 255);
   color: #b952d3;
   border: 3px solid #b952d3;
