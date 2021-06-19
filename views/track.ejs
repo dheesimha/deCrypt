@@ -2,11 +2,9 @@
 
 <%- include('partials/header') %>
 
-  <h1>BTC</h1>
-
-  <p>
-    <%=Price%>
-  </p>
+  <div class="track-heading">
+    <h1>Hey <%=Name.username%> view your favourite cryptos here</h1>
+  </div>
 
   <div class="track-whole-section">
     <div class="searchAndList">
@@ -32,15 +30,18 @@
         <li><a href="#">Bitcoin Cash</a></li>
         <li><a href="#">Chainlink</a></li>
       </ul>
-
     </div>
-
-    <div class="track-main">
-      <p>Content after search bar</p>
-    </div>
-
-
   </div>
+
+  <div class="track_main">
+    <p>Content after search bar</p>
+    <h1>BTC</h1>
+    <p>
+      <%=Price%>
+    </p>
+  </div>
+
+
 
 
 

@@ -13,7 +13,8 @@ input {
   font-family: "Poppins", sans-serif;
 }
 
-.container {    /*Belongs to login.ejs */
+.container {
+  /*Belongs to login.ejs */
   position: relative;
   width: 100%;
   background-color: #fff;
@@ -21,7 +22,8 @@ input {
   /* overflow: hidden; */
 }
 
-.container1 {    /*Belongs to register.ejs */
+.container1 {
+  /*Belongs to register.ejs */
   position: relative;
   width: 100%;
   background-color: #fff;
@@ -29,7 +31,8 @@ input {
   /* overflow: hidden; */
 }
 
-.forms-container {  /*Belongs to login.ejs */
+.forms-container {
+  /*Belongs to login.ejs */
   position: absolute;
   width: 100%;
   height: 100%;
@@ -37,7 +40,8 @@ input {
   left: 0;
 }
 
-.forms-container1 {   /*Belongs to register.ejs */
+.forms-container1 {
+  /*Belongs to register.ejs */
   position: absolute;
   width: 100%;
   height: 100%;
@@ -45,7 +49,8 @@ input {
   left: 0;
 }
 
-.signin-signup {     /*Belongs to login.ejs */
+.signin-signup {
+  /*Belongs to login.ejs */
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -57,7 +62,8 @@ input {
   z-index: 5;
 }
 
-.signin-signup1 {   /*Belongs to register.ejs */
+.signin-signup1 {
+  /*Belongs to register.ejs */
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -308,13 +314,12 @@ form.sign-in-form {
   font-size: 0.8rem;
 }
 
- /* ANIMATION */
+/* ANIMATION */
 
 /* .right-panel .image, 
 .right-panel .content {
   transform: translateX(800px);
 }  */
-
 
 /* .container.sign-up-mode:before {
   transform: translate(100%, -50%);
@@ -547,10 +552,10 @@ form.sign-in-form {
   border: 1px solid #ddd; /* Add a border to all links */
   margin-top: -1px; /* Prevent double borders */
   background-color: #ffffff; /* Coins list color before hovering */
-  padding: 12px; 
+  padding: 12px;
   text-decoration: none; /* Remove default text underline */
-  font-size: 18px; 
-  color: black; 
+  font-size: 18px;
+  color: black;
   display: grid; /* Make it into a block element to fill the whole list */
   align-items: center;
   justify-content: center;
@@ -563,7 +568,16 @@ form.sign-in-form {
 
 .searchAndList {
   background-color: rgb(134, 134, 134);
-  border: 2px solid red;
+}
+
+.track_main {
+  margin: 80px;
+  display: flex;
+  visibility: visible;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
 }
 
 /*home.ejs*/
@@ -583,7 +597,8 @@ label.logo {
   padding: 0 70px;
   font-weight: bold;
 }
-a:visited { /* Prevent the hyperlinks turning blue after visiting */
+a:visited {
+  /* Prevent the hyperlinks turning blue after visiting */
   text-decoration: none;
   color: white;
 }
@@ -593,7 +608,7 @@ nav ul {
   margin-right: 30px;
 }
 nav ul li {
- display: inline-block;   /*Display the list on the same line as adjacent content */
+  display: inline-block; /*Display the list on the same line as adjacent content */
   line-height: 80px;
   margin: 0 5px;
 }

@@ -36,6 +36,7 @@ app.use(session({
   saveUninitialized: false,
 }))
 
+
 app.use(passport.initialize())
 app.use(passport.session())
 
@@ -114,7 +115,8 @@ app.route("/track").get((req, res) => {
     client.getBuyPrice({ 'currencyPair': 'BTC-INR' }, function (err, obj) {
       price = obj.data.amount;
       // console.log('total amount: ' + obj.data.amount);
-      res.render("track", { Price: price });
+      res.render("track", { Price: price, Name: User });
+      console.log(User.username)
     });
   }
 

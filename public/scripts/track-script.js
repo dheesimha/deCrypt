@@ -1,17 +1,3 @@
-// Start Of Homepage's JavaScript
-const sign_in_btn = document.querySelector("#sign-in-btn");
-const sign_up_btn = document.querySelector("#sign-up-btn");
-const container = document.querySelector(".container");
-
-// sign_up_btn.addEventListener("click", () => {
-//   container.classList.add("sign-up-mode");
-// });
-
-// sign_in_btn.addEventListener("click", () => {
-//   container.classList.remove("sign-up-mode");
-// });
-
-//End of Homepage's JavaScript
 // searching coins
 function searching() {
   // Declare variables
@@ -41,12 +27,15 @@ document.addEventListener("click", (event) => {
 
   if (event.path[1].className === "search") {
     document.getElementById("cryptocoins-list").style.display = "grid"
+    document.querySelector("div.track_main").style.visibility = "visible"
 
   }
 
   else {
 
     document.getElementById("cryptocoins-list").style.display = "none"
+    document.querySelector("div.track_main").style.visibility = "visible"
+
   }
 
 })
