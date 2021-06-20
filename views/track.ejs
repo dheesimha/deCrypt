@@ -8,18 +8,13 @@
       <ul>
         <li><a href="./login"><button class="login" type="submit">Logout</button></a></li>
       </ul>
-      <!-- downloaded gif not working -->
-      <!-- <li><img src="/public/images/user-icon.gif" alt="user-icon" class="user-icon"></li> -->
-      <a href="#" img src="https://img.icons8.com/color/48/000000/circled-user-male-skin-type-5--v2.png" alt="user-icon"
-          class="user-icon"></a>
     </nav>
   </div>
-  <div class="track-heading">
+  <!-- <div class="track-heading">
     <h1>Hey <%=TrackUserName%> view your favourite cryptos here</h1>
-  </div>
+  </div> -->
   <div class="search">
-    <input class="searchTerm" type="text" list="datalist" placeholder="Search and add your favourite coins.."
-      onkeyup="ac(this.value)">
+    <input class="searchTerm" type="text" list="datalist" placeholder="Search and add your favourite coins..">
     <option value="Bitcoin"></option>
     <datalist id="datalist">
       <option value="Ethereum"></option>
@@ -36,13 +31,13 @@
     </datalist>
     <button type="submit" class="addButton">+</button>
   </div>
-  <div class="track_main">
+  <!-- <div class="track_main">
     <p>Content after search bar</p>
     <h1>BTC</h1>
     <p>
       <%=Price%>
     </p>
-  </div>
+  </div> -->
 
 
   <%- include('partials/footer') %>
