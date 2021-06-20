@@ -127,7 +127,7 @@ app.route("/track").get((req, res) => {
 
       const trackUserName = req.user.username
 
-      res.render("track", { Price: price, TrackUserName: trackUserName ,DataImg:dataimg});
+      res.render("track", { Price: price, TrackUserName: trackUserName });
 
 
     });
