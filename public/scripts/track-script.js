@@ -1,43 +1,38 @@
-// searching coins
-function searching() {
-  // Declare variables
-  var input, filter, ul, li, a, i, txtValue;
-  input = document.getElementById('myInput');
-  filter = input.value.toUpperCase();
-  ul = document.getElementById("cryptocoins-list");
-  li = ul.getElementsByTagName('li');
+var tags = [ 
+  "Bitcoin",
+  "Ethereum",
+  "Cardano",
+  "Tether",
+  "Binancecoin",
+  "Dogecoin",
+  "XRP",
+  "Polygon",
+  "Polkadot",
+  "Litecoin",
+  "Bitcoin Cash",
+  "Chainlink"
+    ];
 
-  // Loop through all list items, and hide those who don't match the search query
-  for (i = 0; i < li.length; i++) {
-    a = li[i].getElementsByTagName("a")[0];
-    txtValue = a.textContent || a.innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      li[i].style.display = "";
-    } else {
-      li[i].style.display = "none";
-    }
-  }
-}
+    /*list of available options*/
+   var n= tags.length;   
 
+   function ac(value) {
+      document.getElementById('datalist').innerHTML = '';
+       //setting datalist empty at the start of function
 
-// To toggle between the display of crypto list ,which shows the entire list only when the search bar is clicked else it is hidden
+       l=value.length;
+       //input query length
+   for (var i = 0; i<n; i++) {
+       if(((tags[i].toLowerCase()).indexOf(value.toLowerCase()))>-1)
+       {
+           //comparing if input string is existing in tags[i] string
 
-document.addEventListener("click", (event) => {
+           var node = document.createElement("option");
+           var val = document.createTextNode(tags[i]);
+            node.appendChild(val);
 
-  console.log(event)
-
-
-  if (event.path[1].className === "search-bar") {
-    document.getElementById("cryptocoins-list").style.display = "grid"
-    document.querySelector("div.track_main").style.visibility = "visible"
-
-  }
-
-  else {
-
-    document.getElementById("cryptocoins-list").style.display = "none"
-    document.querySelector("div.track_main").style.visibility = "visible"
-
-  }
-
-})
+             document.getElementById("datalist").appendChild(node);
+                 //creating and appending new elements in data list
+           }
+       }
+   }
