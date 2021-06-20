@@ -18,6 +18,7 @@ const client = new Client({
 
 const app = express();
 
+
 app.use(express.static("public"));
 
 app.set("view engine", "ejs");
@@ -48,7 +49,10 @@ passport.deserializeUser(function (user, done) {
   done(null, user);
 });
 
+
+
 let price;
+
 
 
 mongoose.connect("mongodb://localhost:27017/cryptDB", {
@@ -123,7 +127,7 @@ app.route("/track").get((req, res) => {
 
       const trackUserName = req.user.username
 
-      res.render("track", { Price: price, TrackUserName: trackUserName });
+      res.render("track", { Price: price, TrackUserName: trackUserName ,DataImg:dataimg});
 
 
     });
