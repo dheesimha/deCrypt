@@ -115,20 +115,17 @@ app.route("/track").get((req, res) => {
   if (req.isAuthenticated()) {
     client.getBuyPrice({ 'currencyPair': 'BTC-INR' }, function (err, obj) {
       price = obj.data.amount;
+
       // console.log('total amount: ' + obj.data.amount);
-      User.findById(req.query.id, (err, doc) => {
-        if (err) {
-          console.log(err)
-        }
-        else {
 
-          const id = req.query.id;
-          console.log(id)
+      //Prints the username of the authenticated user
+      // console.log(req.user.username)
 
-          res.render("track", { Price: price, ID: id });
-        }
+      const trackUserName = req.user.username
 
-      })
+      res.render("track", { Price: price, TrackUserName: trackUserName });
+
+
     });
   }
 
