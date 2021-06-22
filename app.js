@@ -8,6 +8,7 @@ const Client = require("coinbase").Client;
 const passport = require("passport")
 const session = require("express-session")
 const passportLocalMongoose = require("passport-local-mongoose")
+const _ = require("lodash");
 
 
 const client = new Client({
@@ -120,12 +121,15 @@ app.route("/track").get((req, res) => {
     client.getBuyPrice({ 'currencyPair': 'BTC-INR' }, function (err, obj) {
       price = obj.data.amount;
 
-      // console.log('total amount: ' + obj.data.amount);
+      console.log('total amount: ' + obj.data.amount);
 
-      //Prints the username of the authenticated user
+
+
+
+      // Prints the username of the authenticated user
       // console.log(req.user.username)
 
-      const trackUserName = req.user.username
+      const trackUserName = _.capitalize(req.user.username)
 
       res.render("track", { Price: price, TrackUserName: trackUserName });
 
@@ -163,6 +167,11 @@ app
       }
     })
   })
+
+app.get("/logout", (req, res) => {
+  req.logout();
+  res.redirect("/")
+})
 
 app.listen(port, () => {
   console.log("Server started on port 3000");
