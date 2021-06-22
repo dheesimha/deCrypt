@@ -96,6 +96,10 @@ form.sign-in-form {
   z-index: 2;
 }
 
+form.add-btn-track {
+  margin-left: 2px !important;
+}
+
 .title {
   font-size: 2.2rem;
   color: #444;
@@ -505,13 +509,14 @@ form.sign-in-form {
 .searchTerm {
   width: 35ch;
   border: 3px solid #b952d3;
-  border-right: none;
+  /* border-right: none; */
   font-size: 17px;
   padding: 5px;
   height: 50px;
   border-radius: 5px 0 0 5px;
-  margin-left: 40ch;
-  margin-top: 10ch;
+  border-radius: 25px !important;
+  margin-left: 43ch;
+  margin-top: 6ch;
   outline: none;
   color: #b952d3;
 }
@@ -525,11 +530,13 @@ input::-webkit-calendar-picker-indicator {
   border: 1px solid #b952d3;
   background: #b952d3;
   text-align: center;
-  margin-top: 7.68ch;
+  margin-top: 4.6ch;
   color: rgb(255, 255, 255);
-  border-radius: 0 5px 5px 0;
+  /* border-radius: 0 5px 5px 0; */
+  border-radius: 35px !important;
   cursor: pointer;
   font-size: 25px;
+  margin-left: -85px;
 }
 
 .addButton:hover {

@@ -18,7 +18,7 @@
   <!-- <div class="track-heading">
     <h1>Hey <%=TrackUserName%> view your favourite cryptos here</h1>
   </div> -->
-  <div class="search">
+  <div class="search" spellcheck="false">
     <input class="searchTerm" type="text" list="datalist" placeholder="Search and add your favourite coins..">
     <option value="Bitcoin"></option>
     <datalist id="datalist">
@@ -35,7 +35,9 @@
       <option value="Bitcoin Cash"></option>
       <option value="Chainlink"></option>
     </datalist>
-    <button type="submit" value="" class="addButton">+</button>
+    <form class="add-btn-track" action="/track" method="POST">
+      <button type="submit" value="" class="addButton">+</button>
+    </form>
   </div>
   <!-- <div class="track_main">
     <p>Content after search bar</p>
