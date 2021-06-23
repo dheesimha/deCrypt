@@ -81,7 +81,7 @@ const userSchema = new mongoose.Schema({
 
   coins:
   {
-    type: [String]
+    type: String
   }
 
 
@@ -125,6 +125,21 @@ app
 
 // Track route
 
+let tickerSymbol = {
+  "Bitcoin": "BTC",
+  "Ethereum": "ETH",
+  "Cardano": "ADA",
+  "Tether": "USDT",
+  "Binance Coin": "BNB",
+  "Dogecoin": "DOGE",
+  "XRP": "XRP",
+  "Polygon": "MATIC",
+  "Polkadot": "DOT",
+  "Litecoin": "LTC",
+  "Bitcoin Cash": "BCH",
+  "Chainlink": "LINK"
+}
+
 app.route("/track")
   .get((req, res) => {
     if (req.isAuthenticated()) {
@@ -151,21 +166,35 @@ app.route("/track")
     const addedCoins = req.body.selectedCoin
 
     console.log(addedCoins)
-    // console.log(req.user)
+    const coinTickerSymbol = tickerSymbol[addedCoins]
+    console.log(coinTickerSymbol)
 
-    // User.findById(req.user._id, (err, foundUser) => {
-    //   if (err) {
-    //     console.log(err)
-    //   }
 
-    //   else {
-    //     if (foundUser) {
-    //       foundUser.coins.push(addedCoins)
+
+    client.getBuyPrice({ 'currencyPair': `${coinTickerSymbol}-INR` }, function (err, obj) {
+      price = obj.data.amount;
+
+      console.log('total amount: ' + obj.data.amount);
+    })
+
+    //   User.findById(req.user.id, (err, foundUser) => {
+    //     if (err) {
+    //       console.log(err)
     //     }
-    //   }
-    // })
-  })
 
+    //     else {
+    //       if (foundUser) {
+    //         foundUser.coins = addedCoins
+    //         foundUser.save();
+    //       }
+
+    //       console.log(req.user)
+
+    //     }
+    //   })
+    // })
+
+  })
 
 
 //Register route
@@ -201,19 +230,6 @@ app.listen(port, () => {
 });
 
 
-let tickerSymbol = {
-  "Bitcoin": "BTC",
-  "Ethereum": "ETH",
-  "Cardano": "ADA",
-  "Tether": "USDT",
-  "Binance Coin": "BNB",
-  "Dogecoin": "DOGE",
-  "XRP": "XRP",
-  "Polygon": "MATIC",
-  "Polkadot": "DOT",
-  "Litecoin": "LTC",
-  "Bitcoin Cash": "BCH",
-  "Chainlink": "LINK"
-}
 
-console.log(tickerSymbol.Bitcoin)
+// console.log(tickerSymbol.Bitcoin)
+
