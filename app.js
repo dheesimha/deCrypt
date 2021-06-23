@@ -24,9 +24,10 @@ app.use(express.static("public"));
 
 app.set("view engine", "ejs");
 
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-app.use(express.json())
+app.use(bodyParser.urlencoded({ extended: true }));
+
 
 app.use(passport.initialize())
 
@@ -53,6 +54,7 @@ passport.deserializeUser(function (user, done) {
 
 
 let price;
+let coins = [];
 
 
 
@@ -76,6 +78,13 @@ const userSchema = new mongoose.Schema({
     type: String
     // required: true,
   },
+
+  coins:
+  {
+    type: [String]
+  }
+
+
 });
 
 userSchema.plugin(passportLocalMongoose);
@@ -116,32 +125,46 @@ app
 
 // Track route
 
-app.route("/track").get((req, res) => {
-  if (req.isAuthenticated()) {
-    client.getBuyPrice({ 'currencyPair': 'BTC-INR' }, function (err, obj) {
-      price = obj.data.amount;
+app.route("/track")
+  .get((req, res) => {
+    if (req.isAuthenticated()) {
+      client.getBuyPrice({ 'currencyPair': 'BTC-INR' }, function (err, obj) {
+        price = obj.data.amount;
 
-      console.log('total amount: ' + obj.data.amount);
+        console.log('total amount: ' + obj.data.amount);
 
+        // Prints the username of the authenticated user
+        // console.log(req.user.username)
 
+        const trackUserName = _.capitalize(req.user.username)
 
+        res.render("track", { Price: price, TrackUserName: trackUserName });
+      });
+    }
 
-      // Prints the username of the authenticated user
-      // console.log(req.user.username)
+    else {
+      res.redirect("/login")
+    }
+  })
 
-      const trackUserName = _.capitalize(req.user.username)
+  .post((req, res) => {
+    const addedCoins = req.body.selectedCoin
 
-      res.render("track", { Price: price, TrackUserName: trackUserName });
+    console.log(addedCoins)
+    // console.log(req.user)
 
+    // User.findById(req.user._id, (err, foundUser) => {
+    //   if (err) {
+    //     console.log(err)
+    //   }
 
-    });
-  }
-
-  else {
-    res.redirect("/login")
-  }
-})
-
+    //   else {
+    //     if (foundUser) {
+    //       foundUser.coins.push(addedCoins)
+    //     }
+    //   }
+    // })
+  })
 
 
 
@@ -176,3 +199,21 @@ app.get("/logout", (req, res) => {
 app.listen(port, () => {
   console.log("Server started on port 3000");
 });
+
+
+let tickerSymbol = {
+  "Bitcoin": "BTC",
+  "Ethereum": "ETH",
+  "Cardano": "ADA",
+  "Tether": "USDT",
+  "Binance Coin": "BNB",
+  "Dogecoin": "DOGE",
+  "XRP": "XRP",
+  "Polygon": "MATIC",
+  "Polkadot": "DOT",
+  "Litecoin": "LTC",
+  "Bitcoin Cash": "BCH",
+  "Chainlink": "LINK"
+}
+
+console.log(tickerSymbol.Bitcoin)

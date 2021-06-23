@@ -515,7 +515,7 @@ form.add-btn-track {
   height: 50px;
   border-radius: 5px 0 0 5px;
   border-radius: 25px !important;
-  margin-left: 43ch;
+  margin-left: 6ch;
   margin-top: 6ch;
   outline: none;
   color: #b952d3;
@@ -536,7 +536,7 @@ input::-webkit-calendar-picker-indicator {
   border-radius: 35px !important;
   cursor: pointer;
   font-size: 25px;
-  margin-left: -85px;
+  margin-left: 15px;
 }
 
 .addButton:hover {
