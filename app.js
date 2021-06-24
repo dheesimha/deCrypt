@@ -9,7 +9,7 @@ const passport = require("passport")
 const session = require("express-session")
 const passportLocalMongoose = require("passport-local-mongoose")
 const _ = require("lodash");
-
+const LocalStrategy = require('passport-local').Strategy;
 
 const client = new Client({
   apiKey: "API_KEY",
@@ -29,19 +29,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-app.use(passport.initialize())
-
-app.use(passport.session())
-
 app.use(session({
   secret: process.env.secret,
   resave: false,
   saveUninitialized: false,
 }))
 
-
 app.use(passport.initialize())
+
 app.use(passport.session())
+
 
 passport.serializeUser(function (user, done) {
   done(null, user);
@@ -51,6 +48,20 @@ passport.deserializeUser(function (user, done) {
   done(null, user);
 });
 
+passport.use(new LocalStrategy(
+  function (username, password, done) {
+    User.findOne({ username: username }, function (err, user) {
+      if (err) { return done(err); }
+      if (!user) {
+        return done(null, false, { message: 'Incorrect username.' });
+      }
+      if (!user.authenticate(password)) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+      return done(null, user);
+    });
+  }
+));
 
 
 let price;
@@ -70,26 +81,36 @@ const userSchema = new mongoose.Schema({
   },
 
   email: {
-    type: String
-    // required: true,
+    type: String,
+
   },
 
   password: {
-    type: String
-    // required: true,
+    type: String,
+
   },
 
   coins:
   {
-    type: String
+    type: [String]
   }
 
 
 });
 
+
 userSchema.plugin(passportLocalMongoose);
 
+
+userSchema.pre("save", (next) => {
+  if (this.password === password) {
+    next();
+  }
+})
+
 const User = new mongoose.model("User", userSchema);
+
+
 
 app.route("/").get((req, res) => {
   res.render("home");
@@ -177,24 +198,27 @@ app.route("/track")
       console.log('total amount: ' + obj.data.amount);
     })
 
-    //   User.findById(req.user.id, (err, foundUser) => {
-    //     if (err) {
-    //       console.log(err)
-    //     }
 
-    //     else {
-    //       if (foundUser) {
-    //         foundUser.coins = addedCoins
-    //         foundUser.save();
-    //       }
 
-    //       console.log(req.user)
+    User.findById(req.user.id, (err, foundUser) => {
+      if (err) {
+        console.log(err)
+      }
 
-    //     }
-    //   })
-    // })
+      else {
+        if (foundUser) {
+          console.log("Adding coin to the array")
+          foundUser.coins.push(addedCoins)
+          foundUser.save(done);
+        }
 
-  })
+        console.log(req.user)
+
+      }
+    })
+  }
+  )
+
 
 
 //Register route
