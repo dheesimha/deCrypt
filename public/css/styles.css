@@ -491,6 +491,13 @@ form.add-btn-track {
   }
 }
 
+#togglePassword {
+  margin-left: 330px;
+  margin-top: -36px;
+  cursor: pointer;
+  display: flex;
+}
+
 /* track.ejs */
 .user-icon {
   width: 50px;
