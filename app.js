@@ -10,6 +10,7 @@ const session = require("express-session")
 const passportLocalMongoose = require("passport-local-mongoose")
 const _ = require("lodash");
 const LocalStrategy = require('passport-local').Strategy;
+const findOrCreate = require("mongoose-findorcreate");
 
 const client = new Client({
   apiKey: "API_KEY",
@@ -40,13 +41,64 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 
+
+mongoose.connect("mongodb://localhost:27017/cryptDB", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+mongoose.set("useCreateIndex", true);
+
+const userSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    required: true,
+  },
+
+  email: {
+    type: String,
+
+  },
+
+  password: {
+    type: String,
+
+  },
+
+  coins:
+  {
+    type: [String],
+  }
+
+
+});
+
+
+userSchema.plugin(passportLocalMongoose, {
+  usernameField: "username"
+});
+
+userSchema.plugin(findOrCreate);
+
+const User = new mongoose.model("User", userSchema);
+
+passport.use(User.createStrategy())
+
+
 passport.serializeUser(function (user, done) {
   done(null, user);
 });
 
-passport.deserializeUser(function (user, done) {
-  done(null, user);
+// passport.deserializeUser(function (user, done) {
+//   done(null, user);
+// });
+
+passport.deserializeUser(function (id, done) {
+  User.findById(id, function (err, user) {
+    done(err, user);
+  });
 });
+
 
 passport.use(new LocalStrategy(
   function (username, password, done) {
@@ -67,54 +119,41 @@ passport.use(new LocalStrategy(
 let price;
 let coins = [];
 
-
-
-mongoose.connect("mongodb://localhost:27017/cryptDB", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
-const userSchema = new mongoose.Schema({
-  username: {
-    type: String,
-    required: true,
-  },
-
-  email: {
-    type: String,
-
-  },
-
-  password: {
-    type: String,
-
-  },
-
-  coins:
-  {
-    type: [String]
-  }
-
-
-});
-
-
-userSchema.plugin(passportLocalMongoose);
-
-
-userSchema.pre("save", (next) => {
-  if (this.password === password) {
-    next();
-  }
-})
-
-const User = new mongoose.model("User", userSchema);
-
-
-
 app.route("/").get((req, res) => {
   res.render("home");
 })
+
+
+
+//Register route
+app
+  .route("/register")
+  .get((req, res) => {
+    res.render("register");
+  })
+
+  .post((req, res) => {
+
+    const username = req.body.username
+    const password = req.body.password
+
+    User.register({ username: username, provider: "local" }, password, (err, user) => {
+      if (err) {
+        console.log(err)
+        res.redirect("/register")
+      }
+
+      else {
+        passport.authenticate("local")(req, res, () => {
+          res.redirect("/login")
+
+        })
+      }
+    })
+  })
+
+
+
 
 
 // Login route
@@ -127,7 +166,7 @@ app
 
     const user = new User({
       username: req.body.username,
-      password: req.body.password
+      password: req.body.password,
     })
 
     req.login(user, (err) => {
@@ -136,6 +175,7 @@ app
       }
 
       else {
+
         passport.authenticate("local")(req, res, () => {
           res.redirect("/track")
         })
@@ -196,53 +236,51 @@ app.route("/track")
       price = obj.data.amount;
 
       console.log('total amount: ' + obj.data.amount);
-    })
 
-
-
-    User.findById(req.user.id, (err, foundUser) => {
-      if (err) {
-        console.log(err)
-      }
-
-      else {
-        if (foundUser) {
-          console.log("Adding coin to the array")
-          foundUser.coins.push(addedCoins)
-          foundUser.save(done);
+      User.findOneAndUpdate(req.user.id, (err, foundUser) => {
+        if (err) {
+          console.log(err);
         }
 
-        console.log(req.user)
+        else {
+          if (foundUser) {
+            console.log("Adding coin to the array")
+            foundUser.coins.push(addedCoins)
+            foundUser.save(done)
+            console.log(req.user)
 
-      }
+          }
+        }
+      })
+
     })
-  }
-  )
 
 
 
-//Register route
-app
-  .route("/register")
-  .get((req, res) => {
-    res.render("register");
+
+
+    //   User.findById(req.user.id, (err, foundUser) => {
+    //     if (err) {
+    //       console.log(err)
+    //     }
+
+    //     else {
+    //       if (foundUser) {
+    //         console.log("Adding coin to the array")
+    //         foundUser.coins.push(addedCoins)
+    //         foundUser.save(done);
+    //       }
+
+    //       console.log(req.user)
+
+    //     }
+    //   })
+    // }
   })
 
-  .post((req, res) => {
-    User.register({ username: req.body.username }, req.body.password, (err, user) => {
-      if (err) {
-        console.log(err)
-        res.redirect("register")
-      }
 
-      else {
-        passport.authenticate("local")(req, res, () => {
-          res.redirect("/login")
 
-        })
-      }
-    })
-  })
+
 
 app.get("/logout", (req, res) => {
   req.logout();
