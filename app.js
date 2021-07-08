@@ -265,7 +265,22 @@ app.route("/track")
 
       console.log('total amount: ' + obj.data.amount);
 
+      User.findByIdAndUpdate(req.user.id, { $addToSet: { coins: addedCoins } }, (err) => {
+        if (err) {
+          console.log(err);
+        }
+        else {
+          const trackUserName = _.capitalize(req.user.username)
+          coins.filter
+          console.log(addedCoins + " is successfuly inserted");
+          // coins.forEach((coin) => {
+          //   console.log(coin);
+          // })
 
+
+          res.render("track", { Coins: coins, TrackUserName: trackUserName });
+        }
+      })
 
 
 
