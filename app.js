@@ -220,13 +220,29 @@ app.route("/track")
         price = obj.data.amount;
 
         console.log('total amount: ' + obj.data.amount);
+        console.log(req.user.id);
 
         // Prints the username of the authenticated user
         // console.log(req.user.username)
 
         const trackUserName = _.capitalize(req.user.username)
+        User.findById(req.user.id, (err, user) => {
+          if (err) {
+            console.log(err);
+            // return;
+          }
 
-        res.render("track", { Price: price, TrackUserName: trackUserName });
+          else {
+            // console.log(req.user)
+            let coinList = user.coins
+            console.log(coinList + " from get");
+            res.render("track", { Coins: coinList, TrackUserName: trackUserName });
+            // return coinList
+          }
+        })
+
+        // console.log(coins + " from function return");
+
       });
     }
 
@@ -249,25 +265,29 @@ app.route("/track")
 
       console.log('total amount: ' + obj.data.amount);
 
-      User.findOneAndUpdate(req.user.id, (err, foundUser) => {
-        if (err) {
-          console.log(err);
-        }
-
-        else {
-          if (foundUser) {
-            console.log("Adding coin to the array")
-            foundUser.coins.push(addedCoins)
-            foundUser.save(done)
-            console.log(req.user)
-
-          }
-        }
-      })
-
-    })
 
 
+
+
+      // User.findOneAndUpdate(req.user.id, (err, foundUser) => {
+      //   if (err) {
+      //     console.log(err);
+      //   }
+
+      //   else {
+      //     if (foundUser) {
+      //       console.log("Adding coin to the array")
+      //       foundUser.coins.push(addedCoins)
+      //       foundUser.save(done)
+      //       console.log(req.user)
+
+      //     }
+      //   }
+      // })
+
+    }
+
+    )
 
 
 
