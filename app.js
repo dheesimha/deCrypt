@@ -82,6 +82,18 @@ userSchema.plugin(findOrCreate);
 
 const User = new mongoose.model("User", userSchema);
 
+// This code is working to store data in the database
+
+// const dhee = new User({
+//   username: "Dheemanth",
+//   email: "dhee@gmail.com,
+//   password: "1234",
+//   coins: ["Bitcoin", "Ethereum"]
+
+// })
+
+// dhee.save();
+
 passport.use(User.createStrategy())
 
 
