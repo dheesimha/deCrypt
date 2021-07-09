@@ -40,7 +40,9 @@ app.use(passport.initialize())
 
 app.use(passport.session())
 
-const uri = "mongodb+srv://dheemanth:dheemanth@cluster0.rrc0r.mongodb.net/cryptDB?retryWrites=true&w=majority"
+
+const uri = `mongodb+srv://${process.env.MONGODB_ADMIN}:${process.env.MONGODB_PASSWORD}@cluster0.rrc0r.mongodb.net/cryptDB?retryWrites=true&w=majority`
+
 
 mongoose.connect(uri, {
   useNewUrlParser: true,
