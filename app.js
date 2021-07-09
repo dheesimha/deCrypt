@@ -97,6 +97,8 @@ userSchema.plugin(findOrCreate);
 
 const User = new mongoose.model("User", userSchema);
 
+
+
 // This code is working to store data in the database
 
 // const dhee = new User({
@@ -311,9 +313,20 @@ app.route("/track")
           //   console.log(coin);
           // })
           // console.log(coins);
+          // usersCoins.forEach((userCoin) => {
+          //   if (userCoin !== addedCoins) {
+          //     usersCoins.push(addedCoins)
+
+          //   }
+          // })
+
+          // usersCoins.push(addedCoins)
+
+          // console.log(usersCoins + " from Usercoins");
 
 
-          res.render("track", { Coins: coins, TrackUserName: trackUserName });
+          res.render("track", { Coins: req.user.coins, TrackUserName: trackUserName });
+          // window.location.reload();
 
         }
 
