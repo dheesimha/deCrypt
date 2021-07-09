@@ -40,12 +40,25 @@ app.use(passport.initialize())
 
 app.use(passport.session())
 
+const uri = "mongodb+srv://dheemanth:dheemanth@cluster0.rrc0r.mongodb.net/cryptDB?retryWrites=true&w=majority"
 
-
-mongoose.connect("mongodb://localhost:27017/cryptDB", {
+mongoose.connect(uri, {
   useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+  useUnifiedTopology: true
+})
+
+  .then(() => {
+    console.log("Connected to the cloud");
+  })
+
+  .catch((err) => {
+    console.log(err);
+  })
+
+// mongoose.connect("mongodb://localhost:27017/cryptDB", {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
 
 mongoose.set("useCreateIndex", true);
 
@@ -213,6 +226,24 @@ let tickerSymbol = {
   "Chainlink": "LINK"
 }
 
+// let allTheUserCoins;
+// let authenticatedUserId;
+// if (req.isAuthenticated()) {
+//   authenticatedUserId = req.user.id;
+//   User.findById(authenticatedUserId, (err, user) => {
+//     if (err) {
+//       console.log(err);
+//     }
+
+//     else {
+//       allTheUserCoins = user.coins
+//       console.log(allTheUserCoins + " All the usercoins");
+//     }
+//   })
+
+// }
+
+
 app.route("/track")
   .get((req, res) => {
     if (req.isAuthenticated()) {
@@ -254,6 +285,8 @@ app.route("/track")
   .post((req, res) => {
     const addedCoins = req.body.selectedCoin
 
+    // console.log(coinList + " from post");
+
     console.log(addedCoins)
     const coinTickerSymbol = tickerSymbol[addedCoins]
     console.log(coinTickerSymbol)
@@ -271,34 +304,22 @@ app.route("/track")
         }
         else {
           const trackUserName = _.capitalize(req.user.username)
-          coins.filter
-          console.log(addedCoins + " is successfuly inserted");
+
           // coins.forEach((coin) => {
           //   console.log(coin);
           // })
+          // console.log(coins);
 
 
           res.render("track", { Coins: coins, TrackUserName: trackUserName });
+
         }
+
+        console.log(addedCoins + " is successfuly inserted" + " " + req.user.coins);
       })
 
 
 
-      // User.findOneAndUpdate(req.user.id, (err, foundUser) => {
-      //   if (err) {
-      //     console.log(err);
-      //   }
-
-      //   else {
-      //     if (foundUser) {
-      //       console.log("Adding coin to the array")
-      //       foundUser.coins.push(addedCoins)
-      //       foundUser.save(done)
-      //       console.log(req.user)
-
-      //     }
-      //   }
-      // })
 
     }
 
@@ -306,23 +327,7 @@ app.route("/track")
 
 
 
-    //   User.findById(req.user.id, (err, foundUser) => {
-    //     if (err) {
-    //       console.log(err)
-    //     }
 
-    //     else {
-    //       if (foundUser) {
-    //         console.log("Adding coin to the array")
-    //         foundUser.coins.push(addedCoins)
-    //         foundUser.save(done);
-    //       }
-
-    //       console.log(req.user)
-
-    //     }
-    //   })
-    // }
   })
 
 
