@@ -281,14 +281,15 @@ app.route("/track")
               let coinTickerSymbol = tickerSymbol[coin]
               client.getBuyPrice({ 'currencyPair': `${coinTickerSymbol}-INR` }, function (err, obj) {
                 price = obj.data.amount;
-                coinPrice.push(price);
+                coinPrice.push(coin + " = " + price);
                 console.log(coinPrice);
 
               })
             })
 
             // console.log(coinsCurrentPrice);
-            res.render("track", { Coins: coinList, TrackUserName: trackUserName });
+            res.render("track", { Coins: coinList, TrackUserName: trackUserName, CoinPrice: coinPrice });
+            coinPrice = [];
           }
         })
 
