@@ -254,49 +254,49 @@ let tickerSymbol = {
 app.route("/track")
   .get((req, res) => {
     if (req.isAuthenticated()) {
-      client.getBuyPrice({ 'currencyPair': 'BTC-INR' }, function (err, obj) {
-        price = obj.data.amount;
+      // client.getBuyPrice({ 'currencyPair': 'BTC-INR' }, function (err, obj) {
+      //   price = obj.data.amount;
 
-        console.log('total amount: ' + obj.data.amount);
-        console.log(req.user.id);
+      //   console.log('total amount: ' + obj.data.amount);
+      //   console.log(req.user.id);
 
-        // Prints the username of the authenticated user
-        // console.log(req.user.username)
+      // Prints the username of the authenticated user
+      // console.log(req.user.username)
 
-        const trackUserName = _.capitalize(req.user.username)
-        User.findById(req.user.id, (err, user) => {
-          if (err) {
-            console.log(err);
-            // return;
-          }
+      const trackUserName = _.capitalize(req.user.username)
+      User.findById(req.user.id, (err, user) => {
+        if (err) {
+          console.log(err);
+          // return;
+        }
 
-          else {
-            // console.log(req.user)
-            let coinList = user.coins
+        else {
+          // console.log(req.user)
+          let coinList = user.coins
 
-            console.log(coinList + " from get");
+          console.log(coinList + " from get");
 
-            // return coinList
-            req.user.coins.forEach((coin) => {
-              let coinTickerSymbol = tickerSymbol[coin]
-              client.getBuyPrice({ 'currencyPair': `${coinTickerSymbol}-INR` }, function (err, obj) {
-                price = obj.data.amount;
-                coinPrice.push(price);
-                console.log(coin + " = " + price);
-                console.log(coinPrice);
+          // return coinList
+          req.user.coins.forEach((coin) => {
+            let coinTickerSymbol = tickerSymbol[coin]
+            client.getBuyPrice({ 'currencyPair': `${coinTickerSymbol}-INR` }, function (err, obj) {
+              price = obj.data.amount;
+              coinPrice.push(price);
+              console.log(coin + " = " + price);
+              console.log(coinPrice);
 
-              })
             })
+          })
 
-            // console.log(coinsCurrentPrice);
-            res.render("track", { Coins: coinList, TrackUserName: trackUserName, CoinPrice: coinPrice });
-            coinPrice = [];
-          }
-        })
+          // console.log(coinsCurrentPrice);
+          res.render("track", { Coins: coinList, TrackUserName: trackUserName, CoinPrice: coinPrice });
+          coinPrice = [];
+        }
+      })
 
-        // console.log(coins + " from function return");
+      // console.log(coins + " from function return");
 
-      });
+
     }
 
     else {
