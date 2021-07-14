@@ -41,6 +41,8 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 
+// const uri = `mongodb+srv://${process.env.MONGODB_ADMIN}:${process.env.MONGODB_PASSWORD}@cluster0.rrc0r.mongodb.net/cryptDB?retryWrites=true&w=majority`
+
 const uri = `mongodb+srv://${process.env.MONGODB_ADMIN}:${process.env.MONGODB_PASSWORD}@cluster0.rrc0r.mongodb.net/cryptDB?retryWrites=true&w=majority`
 
 
@@ -147,6 +149,7 @@ passport.use(new LocalStrategy(
 
 let price;
 let coins = [];
+let coinPrice = [];
 
 app.route("/").get((req, res) => {
   res.render("home");
@@ -270,9 +273,22 @@ app.route("/track")
           else {
             // console.log(req.user)
             let coinList = user.coins
+
             console.log(coinList + " from get");
-            res.render("track", { Coins: coinList, TrackUserName: trackUserName });
+
             // return coinList
+            req.user.coins.forEach((coin) => {
+              let coinTickerSymbol = tickerSymbol[coin]
+              client.getBuyPrice({ 'currencyPair': `${coinTickerSymbol}-INR` }, function (err, obj) {
+                price = obj.data.amount;
+                coinPrice.push(price);
+                console.log(coinPrice);
+
+              })
+            })
+
+            // console.log(coinsCurrentPrice);
+            res.render("track", { Coins: coinList, TrackUserName: trackUserName });
           }
         })
 
@@ -323,6 +339,16 @@ app.route("/track")
           // usersCoins.push(addedCoins)
 
           // console.log(usersCoins + " from Usercoins");
+
+          let coinsCurrentPrice = req.user.coins.forEach((coin) => {
+            let coinTickerSymbol = tickerSymbol[coin]
+            client.getBuyPrice({ 'currencyPair': `${coinTickerSymbol}-INR` }, function (err, obj) {
+              price = obj.data.amount;
+
+            })
+          })
+
+          console.log(coinsCurrentPrice);
 
 
           res.render("track", { Coins: req.user.coins, TrackUserName: trackUserName });
