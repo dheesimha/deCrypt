@@ -662,6 +662,10 @@ nav ul li {
 
 /* Track */
 
-.coinRender h1 {
+.coinRender {
   border: 2px solid red;
+}
+
+.individualCoin {
+  border: 2px solid blue;
 }

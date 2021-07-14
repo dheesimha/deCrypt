@@ -42,24 +42,33 @@
   </div>
 
   <div class="coinRender">
-    <%Coins.map((coin)=>{%>
 
-      <div class="individualCOin">
 
+
+
+
+    <div class="individualCoin">
+      <%Coins.map((coin)=>{%>
         <h1>
           <%=coin%>
-
         </h1>
 
         <p>
-          <%=CoinPrice.forEach((price)=>price)%>
+          <%CoinPrice.map((price)=>{%>
+
+            <%= price%>
+              <%})%>
         </p>
+        <%})%>
+
+    </div>
 
 
 
-      </div>
 
-      <%})%>
+
+
+
   </div>
 
 

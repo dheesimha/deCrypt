@@ -281,7 +281,8 @@ app.route("/track")
               let coinTickerSymbol = tickerSymbol[coin]
               client.getBuyPrice({ 'currencyPair': `${coinTickerSymbol}-INR` }, function (err, obj) {
                 price = obj.data.amount;
-                coinPrice.push(coin + " = " + price);
+                coinPrice.push(price);
+                console.log(coin + " = " + price);
                 console.log(coinPrice);
 
               })
