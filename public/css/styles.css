@@ -669,3 +669,27 @@ nav ul li {
 .individualCoin {
   border: 2px solid blue;
 }
+
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  padding: 2px;
+  margin: 4px;
+  list-style: none;
+}
+
+.flex-item {
+  flex-grow: 1;
+  border: 2px solid white;
+  background: olive;
+  padding: 5px;
+  flex: 1 0 33%;
+  height: 150px;
+  margin-top: 10px;
+  line-height: 150px;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+}
