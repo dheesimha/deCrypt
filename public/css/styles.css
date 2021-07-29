@@ -671,12 +671,13 @@ nav ul li {
 }
 
 .flex-container {
-  display: flex;
-  flex-flow: row wrap;
   justify-content: space-evenly;
   padding: 2px;
   margin: 4px;
-  list-style: none;
+  display: grid;
+  grid-template-columns: 300px 300px 300px;
+  grid-template-rows: 150px 150px;
+  grid-gap: 30px;
 }
 
 .flex-item {
