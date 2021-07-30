@@ -142,39 +142,9 @@ form.add-btn-track {
   font-weight: 500;
 }
 
-.social-text {
-  padding: 0.7rem 0;
-  font-size: 1rem;
-}
-
-.social-media {
-  display: flex;
-  justify-content: center;
-}
-
-.social-icon {
-  height: 46px;
-  width: 46px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 0.45rem;
-  color: #333;
-  border-radius: 50%;
-  border: 1px solid #333;
-  text-decoration: none;
-  font-size: 1.1rem;
-  transition: 0.3s;
-}
-
-.social-icon:hover {
-  color: #b229d4;
-  border-color: #8f38b1;
-}
-
 .btn {
   width: 150px;
-  background-color: #b229d4;
+  background-color: #556986;
   border: none;
   outline: none;
   height: 49px;
@@ -188,7 +158,7 @@ form.add-btn-track {
 }
 
 .btn:hover {
-  background-color: #8f38b1;
+  background: #94a5be;
 }
 
 #sign-in-btn {
@@ -198,12 +168,12 @@ form.add-btn-track {
 
 #sign-in-btn:hover {
   background-color: #ffffff;
-  color: #b952d3;
+  color: #787A91;
 }
 
 #sign-up-btn:hover {
   background-color: #ffffff;
-  color: #b952d3;
+  color: #787A91;
 }
 
 .panels-container {
@@ -234,7 +204,7 @@ form.add-btn-track {
   top: -10%;
   right: 48%;
   transform: translateY(-50%);
-  background-image: linear-gradient(-45deg, #b229d4 0%, #8f38b1 100%);
+  background-image: linear-gradient(-45deg, #222831 0%, #7a6cca 100%);
   /* transition: 1.8s ease-in-out; */
   border-radius: 50%;
   z-index: 6;
@@ -248,7 +218,7 @@ form.add-btn-track {
   top: -10%;
   right: 48%;
   transform: translateY(-50%);
-  background-image: linear-gradient(-45deg, #b229d4 0%, #8f38b1 100%);
+  background-image: linear-gradient(-45deg, #222831 0%, #7a6ebb 100%);
   /* transition: 1.8s ease-in-out; */
   border-radius: 50%;
   z-index: 6;
@@ -515,7 +485,7 @@ form.add-btn-track {
 
 .searchTerm {
   width: 35ch;
-  border: 3px solid #b952d3;
+  border: 3px solid #40356e;
   /* border-right: none; */
   font-size: 17px;
   padding: 5px;
@@ -525,7 +495,7 @@ form.add-btn-track {
   margin-left: 6ch;
   margin-top: 6ch;
   outline: none;
-  color: #b952d3;
+  color: #36475f;
 }
 /* Remove arrow from datalist */
 input::-webkit-calendar-picker-indicator {
@@ -534,8 +504,8 @@ input::-webkit-calendar-picker-indicator {
 .addButton {
   width: 50px;
   height: 50px;
-  border: 1px solid #b952d3;
-  background: #b952d3;
+  border: 1px solid #40356e;
+  background: #40356e;
   text-align: center;
   margin-top: 4.6ch;
   color: rgb(255, 255, 255);
@@ -548,8 +518,8 @@ input::-webkit-calendar-picker-indicator {
 
 .addButton:hover {
   background-color: rgb(255, 255, 255);
-  color: #b952d3;
-  border: 3px solid #b952d3;
+  color: #40356e;
+  border: 3px solid #40356e;
 }
 
 .wrap {
@@ -580,7 +550,7 @@ input::-webkit-calendar-picker-indicator {
 
 /* Navigation bar */
 nav {
-  background: #b952d3;
+  background: linear-gradient(-45deg, #222831 0%, #7a6ebb 100%);
   height: 80px;
   width: 100%;
 }
@@ -612,7 +582,7 @@ nav ul li {
 .login {
   margin: 0;
   background: white;
-  color: #b229d4;
+  color: #393E46;
   border: 2px solid #f0f0f0;
   border-radius: 20px;
   cursor: pointer;
@@ -622,12 +592,12 @@ nav ul li {
   font-size: 0.8rem;
 }
 .createAcc:hover {
-  color: #fff;
-  background: #d9a2e7;
+  color: white;
+  background: #8b95b1;
 }
 .login:hover {
-  color: #fff;
-  background: #d9a2e7;
+  color: white;
+  background: #8992ad;
 }
 /* Buttons styling ends */
 
@@ -662,35 +632,48 @@ nav ul li {
 
 /* Track */
 
-.coinRender {
+/* .coinRender {
   border: 2px solid red;
 }
 
 .individualCoin {
   border: 2px solid blue;
-}
+} */
 
 .flex-container {
   justify-content: space-evenly;
-  padding: 2px;
+  padding: 15px;
   margin: 4px;
   display: grid;
   grid-template-columns: 300px 300px 300px;
-  grid-template-rows: 150px 150px;
+  grid-template-rows: 200px 200px 200px 200px;
   grid-gap: 30px;
 }
 
 .flex-item {
-  flex-grow: 1;
-  border: 2px solid white;
-  background: olive;
-  padding: 5px;
+  flex-grow: 5;
+  border: 2px solid #8b95b1;
+  background: rgb(243, 243, 243);
+  padding: 30px;
   flex: 1 0 33%;
-  height: 150px;
-  margin-top: 10px;
-  line-height: 150px;
-  color: white;
+  /* height: 150px; */
+  margin-top: 30px;
+  line-height: 40px; 
+  color: #544694;
   font-weight: bold;
-  font-size: 3em;
+  font-size: 30px;
   text-align: center;
 }
+.track-button{
+  background-color: #8b95b1;
+  margin-top: 40px;
+  padding: 10px;
+  color: #393E46;
+  border: 2px solid #fff;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.track-button:hover{
+  background: #40356e;
+}
+
