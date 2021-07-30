@@ -254,14 +254,6 @@ let tickerSymbol = {
 app.route("/track")
   .get((req, res) => {
     if (req.isAuthenticated()) {
-      // client.getBuyPrice({ 'currencyPair': 'BTC-INR' }, function (err, obj) {
-      //   price = obj.data.amount;
-
-      //   console.log('total amount: ' + obj.data.amount);
-      //   console.log(req.user.id);
-
-      // Prints the username of the authenticated user
-      // console.log(req.user.username)
 
       const trackUserName = _.capitalize(req.user.username)
       User.findById(req.user.id, (err, user) => {
@@ -277,20 +269,20 @@ app.route("/track")
           console.log(coinList + " from get");
 
           // return coinList
-          req.user.coins.forEach((coin) => {
-            let coinTickerSymbol = tickerSymbol[coin]
-            client.getBuyPrice({ 'currencyPair': `${coinTickerSymbol}-INR` }, function (err, obj) {
-              price = obj.data.amount;
-              coinPrice.push(price);
-              console.log(coin + " = " + price);
-              console.log(coinPrice);
+          // req.user.coins.forEach((coin) => {
+          // let coinTickerSymbol = tickerSymbol[coin]
+          // client.getBuyPrice({ 'currencyPair': `${coinTickerSymbol}-INR` }, function (err, obj) {
+          //   price = obj.data.amount;
+          //   coinPrice.push(price);
+          //   console.log(coin + " = " + price);
+          //   console.log(coinPrice);
 
-            })
-          })
+          // })
+          // })
 
           // console.log(coinsCurrentPrice);
-          res.render("track", { Coins: coinList, TrackUserName: trackUserName, CoinPrice: coinPrice });
-          coinPrice = [];
+          res.render("track", { Coins: coinList, TrackUserName: trackUserName });
+          // coinPrice = [];
         }
       })
 
@@ -374,6 +366,29 @@ app.route("/track")
   })
 
 
+app.get("/Bitcoin", (req, res) => {
+  res.render("../public/coins/source/Bitcoin")
+
+})
+
+app.get("/Dogecoin", (req, res) => {
+  res.render("../public/coins/source/Dogecoin")
+
+})
+
+app.get("/Ethereum", (req, res) => {
+  res.render("../public/coins/source/Ethereum")
+
+})
+
+app.get("/Cardano", (req, res) => {
+  res.render("../public/coins/source/Cardano")
+
+})
+
+
+
+
 
 
 
@@ -389,4 +404,5 @@ app.listen(port, () => {
 
 
 // console.log(tickerSymbol.Bitcoin)
+
 

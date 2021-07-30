@@ -27,9 +27,9 @@
         <option value="Ethereum"></option>
         <option value="Cardano"></option>
         <option value="Tether"></option>
-        <!-- <option value="Binance Coin"></option> -->
+        <option value="Binance Coin"></option>
         <option value="Dogecoin"></option>
-        <!-- <option value="XRP"></option> -->
+        <option value="XRP"></option>
         <option value="Polygon"></option>
         <option value="Polkadot"></option>
         <option value="Litecoin"></option>
@@ -44,27 +44,27 @@
   <div class="coinRender">
 
     <div class="individualCoin">
-      <%Coins.map((coin)=>{%>
-        <h1>
-          <%=coin%>
-        </h1>
-        <p>
-          <%CoinPrice.map((price)=>{%>
-            <%= price%>
-              <%})%>
-        </p>
-        <%})%>
-
+      <%Coins.forEach((coin)=>{%>
+        <button>
+          <a style="text-decoration: none; color:red" ; href=<%=coin%> >
+            <%=coin%>
+        </button>
+        </a>
+        <% }) %>
     </div>
 
   </div>
 
 
-  <!-- <h1>Hello</h1>
-  <h1>Hello</h1>
-  <h1>Hello</h1>
-  <h1>Hello</h1>
-  <h1>Hello</h1> -->
+  <ul class="flex-container">
+
+    <% Coins.forEach((coin)=>{ %>
+      <li class="flex-item">
+        <%=coin%>
+      </li>
+      <%})%>
+  </ul>
+
 
   <ul class="flex-container">
     <li class="flex-item">1</li>
@@ -75,8 +75,6 @@
     <li class="flex-item">6</li>
     <li class="flex-item">7</li>
     <li class="flex-item">8</li>
-    <!-- <li class="flex-item">1</li>
-    <li class="flex-item">1</li> -->
   </ul>
 
 
