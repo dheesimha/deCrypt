@@ -684,3 +684,15 @@ nav ul li {
 .track-button:hover {
   background: #40356e;
 }
+
+/* coins */
+#stock-price{
+  /* text-align: center; */
+  margin-top: 200px;
+}
+#coin-img{
+  height: 300px;
+  float: left;
+  margin: 100px;
+  margin-left: 300px;
+}
