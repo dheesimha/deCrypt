@@ -686,17 +686,28 @@ nav ul li {
 }
 
 /* coins */
+.coin-details{
+  border: 3px solid #36475f;
+  border-radius: 20px;
+  margin-top: 100px;
+  margin-left: 300px;
+  width: 700px;
+  height: 330px;
+}
 #stock-price{
   /* text-align: center; */
-  margin-top: 200px;
+  /* float: right; */
+   padding-top: 20px; 
+   margin-left: 350px;
 }
 #coin-img{
   height: 300px;
   float: left;
-  margin: 100px;
-  margin-left: 300px;
+  margin-top: 0;
+  margin-left: 30px;
 }
-#inr{
-  float: left;
-  
+#coin-name{
+  margin-top: 80px;
+  color: #36475f;
+  margin-left: 350px;
 }
