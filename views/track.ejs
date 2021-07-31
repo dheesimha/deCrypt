@@ -41,7 +41,7 @@
   </form>
   </div>
 
-  <div class="coinRender">
+  <!-- <div class="coinRender">
 
     <div class="individualCoin">
       <%Coins.forEach((coin)=>{%>
@@ -53,20 +53,31 @@
         <% }) %>
     </div>
 
-  </div>
+  </div> -->
 
-
+<div>
   <ul class="flex-container">
-
     <% Coins.forEach((coin)=>{ %>
       <li class="flex-item">
-        <%=coin%>
+        <%=coin%> <br>
+        <button class="track-button">
+          <a style="text-decoration: none;
+          margin: 10px;" href=<%=coin%> >
+            View Price
+          </a>
+        </button> &nbsp;&nbsp;
+        <button class="track-button">
+          <a style="text-decoration: none;
+          margin: 10px;" href="#" >
+            Remove
+          </a>
+        </button>
       </li>
       <%})%>
   </ul>
+</div>
 
-
-  <ul class="flex-container">
+  <!-- <ul class="flex-container">
     <li class="flex-item">1</li>
     <li class="flex-item">2</li>
     <li class="flex-item">3</li>
@@ -75,7 +86,7 @@
     <li class="flex-item">6</li>
     <li class="flex-item">7</li>
     <li class="flex-item">8</li>
-  </ul>
+  </ul> -->
 
 
 
