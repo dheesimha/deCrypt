@@ -8,7 +8,7 @@ ws.onmessage = (event) => {
     let price = parseFloat(stockObject.p * 75).toFixed(2)
     stockPriceElement.innerText = parseFloat(stockObject.p * 75).toFixed(2);
 
-    stockPriceElement.style.color = !lastPrice || lastPrice === price ? "black" : price > lastPrice ? "green" : "red";
+    stockPriceElement.style.color = !lastPrice || lastPrice === price ? "gray" : price > lastPrice ? "rgb(120,240,120)" : " #FF4433";
 
     lastPrice = price;
     console.log(stockObject.p);
