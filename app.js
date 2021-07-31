@@ -386,6 +386,11 @@ app.get("/Cardano", (req, res) => {
 
 })
 
+app.get("/Binance Coin", (req, res) => {
+  res.render("../public/coins/source/Binance Coin")
+
+})
+
 
 
 
