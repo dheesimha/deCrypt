@@ -168,12 +168,12 @@ form.add-btn-track {
 
 #sign-in-btn:hover {
   background-color: #ffffff;
-  color: #787A91;
+  color: #787a91;
 }
 
 #sign-up-btn:hover {
   background-color: #ffffff;
-  color: #787A91;
+  color: #787a91;
 }
 
 .panels-container {
@@ -582,7 +582,7 @@ nav ul li {
 .login {
   margin: 0;
   background: white;
-  color: #393E46;
+  color: #393e46;
   border: 2px solid #f0f0f0;
   border-radius: 20px;
   cursor: pointer;
@@ -652,28 +652,35 @@ nav ul li {
 
 .flex-item {
   flex-grow: 5;
-  border: 2px solid #8b95b1;
+  /* border: 2px dotted #8b95b1; */
+  border: 1px dotted #416a95;
   background: rgb(243, 243, 243);
+  border-radius: 30px;
+  /* width: 250px;
+  height: 250px; */
   padding: 30px;
   flex: 1 0 33%;
   /* height: 150px; */
   margin-top: 30px;
-  line-height: 40px; 
+  line-height: 40px;
   color: #544694;
   font-weight: bold;
   font-size: 30px;
   text-align: center;
 }
-.track-button{
+.track-button {
   background-color: #68728f;
   margin-top: 40px;
   padding: 10px;
-  color: #393E46;
+  color: #393e46;
   border: 2px solid #fff;
   border-radius: 20px;
   cursor: pointer;
 }
-.track-button:hover{
+
+.track-button a {
+  color: whitesmoke;
+}
+.track-button:hover {
   background: #40356e;
 }
-
