@@ -256,6 +256,7 @@ app.route("/track")
     if (req.isAuthenticated()) {
 
       const trackUserName = _.capitalize(req.user.username)
+
       User.findById(req.user.id, (err, user) => {
         if (err) {
           console.log(err);
@@ -282,6 +283,7 @@ app.route("/track")
 
           // console.log(coinsCurrentPrice);
           res.render("track", { Coins: coinList, TrackUserName: trackUserName });
+          // location.reload();
           // coinPrice = [];
         }
       })
@@ -296,74 +298,104 @@ app.route("/track")
     }
   })
 
+
   .post((req, res) => {
     const addedCoins = req.body.selectedCoin
+    const trackUserName = _.capitalize(req.user.username)
 
-    // console.log(coinList + " from post");
 
-    console.log(addedCoins)
     const coinTickerSymbol = tickerSymbol[addedCoins]
-    console.log(coinTickerSymbol)
 
-
-
-    client.getBuyPrice({ 'currencyPair': `${coinTickerSymbol}-INR` }, function (err, obj) {
-      price = obj.data.amount;
-
-      console.log('total amount: ' + obj.data.amount);
-
-      User.findByIdAndUpdate(req.user.id, { $addToSet: { coins: addedCoins } }, (err) => {
-        if (err) {
-          console.log(err);
-        }
-        else {
-          const trackUserName = _.capitalize(req.user.username)
-
-          // coins.forEach((coin) => {
-          //   console.log(coin);
-          // })
-          // console.log(coins);
-          // usersCoins.forEach((userCoin) => {
-          //   if (userCoin !== addedCoins) {
-          //     usersCoins.push(addedCoins)
-
-          //   }
-          // })
-
-          // usersCoins.push(addedCoins)
-
-          // console.log(usersCoins + " from Usercoins");
-
-          let coinsCurrentPrice = req.user.coins.forEach((coin) => {
-            let coinTickerSymbol = tickerSymbol[coin]
-            client.getBuyPrice({ 'currencyPair': `${coinTickerSymbol}-INR` }, function (err, obj) {
-              price = obj.data.amount;
-
-            })
-          })
-
-          console.log(coinsCurrentPrice);
-
-
-          res.render("track", { Coins: req.user.coins, TrackUserName: trackUserName });
-          // window.location.reload();
-
-        }
-
-        console.log(addedCoins + " is successfuly inserted" + " " + req.user.coins);
-      })
-
-
-
-
+    User.findByIdAndUpdate(req.user.id, { $addToSet: { coins: addedCoins } }, (err) => {
+      if (err) {
+        console.log(err);
+      }
+      else {
+        const trackUserName = _.capitalize(req.user.username)
+      }
     }
-
     )
+
+    setTimeout(() => {
+
+      res.render("track", { Coins: req.user.coins, TrackUserName: trackUserName })
+
+
+    }, 1000)
 
 
 
 
   })
+
+// .post((req, res) => {
+//   const addedCoins = req.body.selectedCoin
+
+//   // console.log(coinList + " from post");
+
+//   console.log(addedCoins)
+//   const coinTickerSymbol = tickerSymbol[addedCoins]
+//   console.log(coinTickerSymbol)
+
+
+
+//   client.getBuyPrice({ 'currencyPair': `${coinTickerSymbol}-INR` }, function (err, obj) {
+//     price = obj.data.amount;
+
+//     console.log('total amount: ' + obj.data.amount);
+
+//     User.findByIdAndUpdate(req.user.id, { $addToSet: { coins: addedCoins } }, (err) => {
+//       if (err) {
+//         console.log(err);
+//       }
+//       else {
+//         const trackUserName = _.capitalize(req.user.username)
+
+//         // coins.forEach((coin) => {
+//         //   console.log(coin);
+//         // })
+//         // console.log(coins);
+//         // usersCoins.forEach((userCoin) => {
+//         //   if (userCoin !== addedCoins) {
+//         //     usersCoins.push(addedCoins)
+
+//         //   }
+//         // })
+
+//         // usersCoins.push(addedCoins)
+
+//         // console.log(usersCoins + " from Usercoins");
+
+//         let coinsCurrentPrice = req.user.coins.forEach((coin) => {
+//           let coinTickerSymbol = tickerSymbol[coin]
+//           client.getBuyPrice({ 'currencyPair': `${coinTickerSymbol}-INR` }, function (err, obj) {
+//             price = obj.data.amount;
+
+//           })
+//         })
+
+//         console.log(coinsCurrentPrice);
+
+
+//         res.render("track", { Coins: req.user.coins, TrackUserName: trackUserName });
+//         // window.location.reload();
+
+//       }
+
+//       console.log(addedCoins + " is successfuly inserted" + " " + req.user.coins);
+//     })
+
+
+
+
+//   }
+
+//   )
+
+
+
+
+// })
 
 
 app.get("/Bitcoin", (req, res) => {
