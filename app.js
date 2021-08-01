@@ -222,7 +222,6 @@ let tickerSymbol = {
   "Bitcoin": "BTC",
   "Ethereum": "ETH",
   "Cardano": "ADA",
-  "Tether": "USDT",
   "Binance Coin": "BNB",
   "Dogecoin": "DOGE",
   "XRP": "XRP",
