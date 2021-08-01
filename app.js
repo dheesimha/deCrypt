@@ -390,7 +390,25 @@ app.get("/Binance Coin", (req, res) => {
 
 })
 
+app.get("/Polygon", (req, res) => {
+  res.render("../public/coins/source/Polygon")
 
+})
+
+app.get("/Polkadot", (req, res) => {
+  res.render("../public/coins/source/Polkadot")
+
+})
+
+app.get("/XRP", (req, res) => {
+  res.render("../public/coins/source/XRP")
+
+})
+
+app.get("/Bitcoin Cash", (req, res) => {
+  res.render("../public/coins/source/Bitcoin Cash")
+
+})
 
 
 
