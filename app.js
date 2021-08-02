@@ -222,13 +222,13 @@ let tickerSymbol = {
   "Bitcoin": "BTC",
   "Ethereum": "ETH",
   "Cardano": "ADA",
-  "Binance Coin": "BNB",
+  //"Binance Coin": "BNB",
   "Dogecoin": "DOGE",
   "XRP": "XRP",
   "Polygon": "MATIC",
   "Polkadot": "DOT",
   "Litecoin": "LTC",
-  "Bitcoin Cash": "BCH",
+  //"Bitcoin Cash": "BCH",
   "Chainlink": "LINK"
 }
 
@@ -385,10 +385,6 @@ app.get("/Cardano", (req, res) => {
 
 })
 
-app.get("/Binance Coin", (req, res) => {
-  res.render("../public/coins/source/Binance Coin")
-
-})
 
 app.get("/Polygon", (req, res) => {
   res.render("../public/coins/source/Polygon")
@@ -405,10 +401,6 @@ app.get("/XRP", (req, res) => {
 
 })
 
-app.get("/Bitcoin Cash", (req, res) => {
-  res.render("../public/coins/source/Bitcoin Cash")
-
-})
 
 
 
