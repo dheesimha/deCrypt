@@ -37,6 +37,7 @@
       </datalist>
       <!-- <form class="add-btn-track" action="/track" method="POST"> -->
       <button type="submit" value="" class="addButton">+</button>
+
   </form>
   </div>
 
@@ -57,7 +58,7 @@
   <div>
     <ul class="flex-container">
       <% Coins.forEach((coin)=>{ %>
-        <li class="flex-item">
+        <li class="flex-item" id=<%=coin%>>
           <%=coin%> <br>
             <button class="track-button">
               <a style="text-decoration: none;
@@ -65,11 +66,11 @@
                 View Price
               </a>
             </button> &nbsp;&nbsp;
-            <button class="track-button">
-              <a style="text-decoration: none;
-          margin: 10px;" href="#">
-                Remove
-              </a>
+            <button class="track-button remove-<%=coin%>">
+              <!-- <a style="text-decoration: none;
+          margin: 10px;" href="/track"> -->
+              Remove
+              <!-- </a> -->
             </button>
         </li>
         <%})%>

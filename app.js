@@ -11,6 +11,7 @@ const passportLocalMongoose = require("passport-local-mongoose")
 const _ = require("lodash");
 const LocalStrategy = require('passport-local').Strategy;
 const findOrCreate = require("mongoose-findorcreate");
+const { response } = require("express");
 
 const client = new Client({
   apiKey: "API_KEY",
@@ -305,6 +306,8 @@ app.route("/track")
 
     const coinTickerSymbol = tickerSymbol[addedCoins]
 
+
+
     User.findByIdAndUpdate(req.user.id, { $addToSet: { coins: addedCoins } }, (err) => {
       if (err) {
         console.log(err);
@@ -315,12 +318,30 @@ app.route("/track")
     }
     )
 
-    setTimeout(() => {
+    res.render("track", { Coins: req.user.coins, TrackUserName: trackUserName })
 
-      res.render("track", { Coins: req.user.coins, TrackUserName: trackUserName })
+    // location.reload(true)
+
+  })
+
+  .delete((req, res) => {
+    const trackUserName = _.capitalize(req.user.username)
+    // console.log(req.body.name + " was deleted");
+
+    User.findByIdAndUpdate(req.user.id, { $pull: { coins: req.body.name } }, (err) => {
+      if (err) {
+        console.log(err)
+      }
+
+      else {
+        console.log(req.body.name + " was deleted");
 
 
-    }, 1000)
+      }
+
+
+    }
+    )
 
 
 
@@ -398,33 +419,57 @@ app.route("/track")
 
 
 app.get("/Bitcoin", (req, res) => {
-  res.render("../public/coins/source/Bitcoin")
+  if (req.isAuthenticated()) {
+    res.render("../public/coins/source/Bitcoin")
+  }
 
+  else {
+    res.redirect("/login")
+  }
 })
 
 app.get("/Dogecoin", (req, res) => {
-  res.render("../public/coins/source/Dogecoin")
+  if (req.isAuthenticated()) {
+    res.render("../public/coins/source/Dogecoin")
+  }
 
+  else {
+    res.redirect("/login")
+  }
 })
 
 app.get("/Ethereum", (req, res) => {
-  res.render("../public/coins/source/Ethereum")
+  if (req.isAuthenticated()) {
+    res.render("../public/coins/source/Ethereum")
+  }
 
+  else {
+    res.redirect("/login")
+  }
 })
 
 app.get("/Cardano", (req, res) => {
-  res.render("../public/coins/source/Cardano")
+  if (req.isAuthenticated()) {
+    res.render("../public/coins/source/Cardano")
+  }
+
+  else {
+    res.redirect("/login")
+  }
 
 })
 
 app.get("/Binance Coin", (req, res) => {
-  res.render("../public/coins/source/Binance Coin")
+  if (req.isAuthenticated()) {
+
+    res.render("../public/coins/source/Binance Coin")
+  }
+
+  else {
+    res.redirect("/login")
+  }
 
 })
-
-
-
-
 
 
 
