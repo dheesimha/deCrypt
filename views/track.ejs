@@ -60,18 +60,18 @@
       <% Coins.forEach((coin)=>{ %>
         <li class="flex-item" id=<%=coin%>>
           <%=coin%> <br>
-            <button class="track-button">
-              <a style="text-decoration: none;
+
+            <a style="text-decoration: none;
           margin: 10px;" href=<%=coin%> >
-                View Price
-              </a>
-            </button> &nbsp;&nbsp;
-            <button class="track-button remove-<%=coin%>">
-              <!-- <a style="text-decoration: none;
+              <button class="track-button"> View Price</button>
+            </a>
+            <!-- &nbsp;&nbsp; -->
+            <!-- <button class="track-button remove-<%=coin%>"> -->
+            <!-- <a style="text-decoration: none;
           margin: 10px;" href="/track"> -->
-              Remove
-              <!-- </a> -->
-            </button>
+            <!-- Remove -->
+            <!-- </a> -->
+            <!-- </button> -->
         </li>
         <%})%>
     </ul>

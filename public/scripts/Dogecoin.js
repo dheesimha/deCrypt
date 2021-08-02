@@ -12,28 +12,28 @@ ws.onmessage = (event) => {
 
     lastPrice = price;
     console.log(stockObject.p);
+}
+let deleteDoge = document.getElementById("removeDoge")
 
-    let deleteDoge = document.getElementById("removeDoge")
-
-    deleteDoge.addEventListener("click", () => {
-        fetch("/track", {
-            method: "delete",
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                name: "Dogecoin"
-            })
+deleteDoge.addEventListener("click", () => {
+    fetch("/track", {
+        method: "delete",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            name: "Dogecoin"
         })
-
-            .then(res => {
-                if (res.ok) {
-                    return res.json()
-                }
-            })
-
-            .then(alert("Dogecoin was deleted.Refresh the track page"))
     })
 
-}
+        .then(res => {
+            if (res.ok) {
+                return res.json()
+            }
+        })
+
+        .then(alert("Dogecoin was deleted.Refresh the track page"))
+})
+
+
 
 
 
