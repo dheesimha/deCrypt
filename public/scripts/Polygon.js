@@ -1,4 +1,4 @@
-let ws = new WebSocket("wss://stream.binance.com:9443/ws/ethusdt@trade")
+let ws = new WebSocket("wss://stream.binance.com:9443/ws/maticusdt@trade")
 let stockPriceElement = document.getElementById("stock-price")
 let lastPrice = null;
 
