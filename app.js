@@ -401,6 +401,16 @@ app.get("/XRP", (req, res) => {
 
 })
 
+app.get("/Chainlink", (req, res) => {
+  res.render("../public/coins/source/Chainlink")
+
+})
+
+app.get("/Litecoin", (req, res) => {
+  res.render("../public/coins/source/Litecoin")
+
+})
+
 
 
 
