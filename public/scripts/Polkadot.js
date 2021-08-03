@@ -18,5 +18,24 @@ ws.onmessage = (event) => {
 }
 
 
+let deleteDot = document.getElementById("removeDot")
+
+deleteDot.addEventListener("click", () => {
+    fetch("/track", {
+        method: "delete",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            name: "Polkadot"
+        })
+    })
+
+        .then(res => {
+            if (res.ok) {
+                return res.json()
+            }
+        })
+
+        .then(alert("Polkadot was deleted.Refresh the track page"))
+})
 
 

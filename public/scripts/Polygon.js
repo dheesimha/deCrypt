@@ -18,5 +18,24 @@ ws.onmessage = (event) => {
 }
 
 
+let deleteMatic = document.getElementById("removeMatic")
+
+deleteMatic.addEventListener("click", () => {
+    fetch("/track", {
+        method: "delete",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            name: "Polygon"
+        })
+    })
+
+        .then(res => {
+            if (res.ok) {
+                return res.json()
+            }
+        })
+
+        .then(alert("Polygon was deleted.Refresh the track page"))
+})
 
 

@@ -18,5 +18,23 @@ ws.onmessage = (event) => {
 }
 
 
+let deleteXRP = document.getElementById("removeXRP")
 
+deleteXRP.addEventListener("click", () => {
+    fetch("/track", {
+        method: "delete",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            name: "XRP"
+        })
+    })
+
+        .then(res => {
+            if (res.ok) {
+                return res.json()
+            }
+        })
+
+        .then(alert("XRP was deleted.Refresh the track page"))
+})
 

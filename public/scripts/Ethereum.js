@@ -18,5 +18,24 @@ ws.onmessage = (event) => {
 }
 
 
+let deleteEth = document.getElementById("removeEth")
+
+deleteEth.addEventListener("click", () => {
+    fetch("/track", {
+        method: "delete",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            name: "Ethereum"
+        })
+    })
+
+        .then(res => {
+            if (res.ok) {
+                return res.json()
+            }
+        })
+
+        .then(alert("Ethereum was deleted.Refresh the track page"))
+})
 
 
