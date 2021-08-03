@@ -1,13 +1,14 @@
 
-const togglePassword = document.querySelector('#togglePassword');
-const password = document.querySelector('#password');
+const togglePassword = document.querySelector('#togglePassword'); //tog
+const password = document.querySelector('#password');// i/p
 
-togglePassword.addEventListener('click', function (e) {
+togglePassword.addEventListener('click', function () {
     // toggle the type attribute
-    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-    password.setAttribute('type', type);
+    const type = password.getAttribute('type'); 
+
+    password.setAttribute('type', type === 'password' ? 'text' : 'password');
     // toggle the eye / eye slash icon
-    this.classList.toggle('bi-eye');
+    
 });
 
 

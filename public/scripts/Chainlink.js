@@ -37,3 +37,5 @@ deleteLink.addEventListener("click", () => {
 
         .then(alert("Chainlink was deleted. Refresh the track page"))
 })
+
+
