@@ -686,7 +686,7 @@ nav ul li {
 }
 
 /* coins */
-.coin-details{
+.coin-details {
   border: 3px solid #36475f;
   border-radius: 20px;
   margin-top: 100px;
@@ -694,20 +694,22 @@ nav ul li {
   width: 700px;
   height: 330px;
 }
-#stock-price{
+#stock-price {
   /* text-align: center; */
   /* float: right; */
-   padding-top: 20px; 
-   margin-left: 350px;
+  padding-top: 20px;
+  margin-left: 350px;
 }
-#coin-img{
+#coin-img {
   height: 300px;
   float: left;
   margin-top: 0;
   margin-left: 30px;
 }
-#coin-name{
+#coin-name {
   margin-top: 80px;
   color: #36475f;
   margin-left: 350px;
 }
+
+/*End of css*/
