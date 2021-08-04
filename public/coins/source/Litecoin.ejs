@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock ticker</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+    <div class="navbar">
+        <nav>
+          <label class="logo"><a href="#">deCrypt</a></label>
+          <ul>
+        <li><a href="./track">View all coins</a> </li>
+            <li><a href="./logout"><button class="login" type="submit">Logout</button></a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="coin-details">
+      <img id="coin-img" src="../images/litecoin.gif"/>
+      <h1 id= coin-name>Litecoin-LTC</h1>
+    <h1 id="stock-price">---</h1>
+  </div>
+    
+    <button class="remove-btn" id="removeLtc">Remove</button>
+    <script src="../../scripts/Litecoin.js"></script>
+  
+
+</body>
+
+</html>

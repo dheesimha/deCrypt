@@ -1,0 +1,77 @@
+<!-- User lands on this page after signing in or registering -->
+
+<%- include('partials/header') %>
+  <div class="navbar">
+    <nav>
+      <label class="logo"><a href="#">deCrypt</a></label>
+      <!--alternate logo-->
+      <ul>
+        <li><a href="#">
+            <%=TrackUserName%></button>
+          </a></li>
+      </ul>
+      <ul>
+        <li><a href="./logout"><button class="login" type="submit">Logout</button></a></li>
+      </ul>
+    </nav>
+  </div>
+  <!-- <div class="track-heading">
+    <h1>Hey <%=TrackUserName%> view your favourite cryptos here</h1>
+  </div> -->
+  <form action="/track" method="POST">
+    <div class="search" spellcheck="false">
+      <input class="searchTerm" type="text" list="datalist" placeholder="Search and add your favourite coins.." name="selectedCoin">
+      <datalist id="datalist">
+        <option value="Bitcoin"></option>
+        <option value="Ethereum"></option>
+        <option value="Cardano"></option>
+        <option value="Dogecoin"></option>
+        <option value="XRP"></option>
+        <option value="Polygon"></option>
+        <option value="Polkadot"></option>
+        <option value="Litecoin"></option>
+        <option value="Chainlink"></option>
+      </datalist>
+      <!-- <form class="add-btn-track" action="/track" method="POST"> -->
+      <button type="submit" value="" class="addButton">+</button>
+
+  </form>
+  </div>
+
+  <!-- <div class="coinRender">
+
+    <div class="individualCoin">
+      <%Coins.forEach((coin)=>{%>
+        <button>
+          <a style="text-decoration: none; color:red" ; href=<%=coin%> >
+            <%=coin%>
+        </button>
+        </a>
+        <% }) %>
+    </div>
+
+  </div> -->
+
+  <div>
+    <ul class="flex-container">
+      <% Coins.forEach((coin)=>{ %>
+        <li class="flex-item" id=<%=coin%>>
+          <%=coin%> <br>
+
+            <a style="text-decoration: none;
+          margin: 10px;" href=<%=coin%> >
+              <button class="track-button"> View Price</button>
+            </a>
+            <!-- &nbsp;&nbsp; -->
+            <!-- <button class="track-button remove-<%=coin%>"> -->
+            <!-- <a style="text-decoration: none;
+          margin: 10px;" href="/track"> -->
+            <!-- Remove -->
+            <!-- </a> -->
+            <!-- </button> -->
+        </li>
+        <%})%>
+    </ul>
+  </div>
+
+  <%- include('partials/footer') %>

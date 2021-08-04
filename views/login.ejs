@@ -1,0 +1,39 @@
+<%- include('partials/header') %>
+
+    <!-- Add the sign in form here  -->
+
+    <div class="container">
+        <!-- <div class="login-logo">
+            <img src="/images/logo.png" alt="logo">
+        </div> -->
+        <div class="forms-container">
+            <div class="signin-signup">
+                <form action="/login" method="POST" class="sign-in-form">
+                    <h2 class="title">Sign In</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" name="username" placeholder="Username" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" name="password" id="password" placeholder="Password" />
+                        <i class="bi bi-eye-slash" id="togglePassword"></i>
+                    </div>
+                    <input type="submit" value="Login" class="btn solid" />
+                </form>
+            </div>
+        </div>
+
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>New user ?</h3>
+                    <p>Get instant updates on Crypto on one tap</p>
+                    <a href="./register"><button class="btn transparent" id="sign-up-btn">Sign Up</button></a>
+                </div>
+                <img src="/images/img1.svg" class="image" alt="btc" />
+            </div>
+        </div>
+    </div>
+    <script src="../public/scripts/track-script.js"></script>
+    <%- include('partials/footer') %>
