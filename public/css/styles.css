@@ -678,7 +678,7 @@ nav ul li {
   cursor: pointer;
 }
 
-.track-button a {
+.track-button  {
   color: whitesmoke;
 }
 .track-button:hover {
@@ -712,4 +712,21 @@ nav ul li {
   margin-left: 350px;
 }
 
-/*End of css*/
+
+.remove-btn{
+  background-color: #68728f;
+  margin-left: 600px;
+  margin-top: 30px;
+  padding: 10px;
+  color: #ffffff;
+  border: 2px solid rgb(214, 214, 214);
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100px;
+  font-size: medium;
+}
+.remove-btn:hover {
+  background: #40356e;
+}
+
+

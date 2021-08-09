@@ -18,6 +18,24 @@ ws.onmessage = (event) => {
 
 }
 
+let deleteAda = document.getElementById("removeAda")
 
+deleteAda.addEventListener("click", () => {
+    fetch("/track", {
+        method: "delete",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            name: "Cardano"
+        })
+    })
+
+        .then(res => {
+            if (res.ok) {
+                return res.json()
+            }
+        })
+
+        .then(alert("Cardano was deleted.Refresh the track page"))
+})
 
 

@@ -13,6 +13,11 @@ ws.onmessage = (event) => {
     lastPrice = price;
     console.log(stockObject.p);
 }
+
+
+
+
+
 let deleteDoge = document.getElementById("removeDoge")
 
 deleteDoge.addEventListener("click", () => {
