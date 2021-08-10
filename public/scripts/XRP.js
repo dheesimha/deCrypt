@@ -35,6 +35,7 @@ deleteXRP.addEventListener("click", () => {
             }
         })
         .then(ws.close())
+        // .then(ws.onclose() = () => { alert("XRP was deleted.Refresh the track page") })
         .then(alert("XRP was deleted.Refresh the track page"))
 })
 
