@@ -6,7 +6,7 @@ ws.onmessage = (event) => {
     console.log(event.srcElement.url)
     let stockObject = JSON.parse(event.data);
     let price = parseFloat(stockObject.p * 75).toFixed(2)
-    stockPriceElement.innerText = "₹ "+parseFloat(stockObject.p * 75).toFixed(2);
+    stockPriceElement.innerText = "₹ " + parseFloat(stockObject.p * 75).toFixed(2);
 
     stockPriceElement.style.color = !lastPrice || lastPrice === price ? "gray" : price > lastPrice ? "#32CD32" : " #FF4433";
 
@@ -34,7 +34,7 @@ deleteXRP.addEventListener("click", () => {
                 return res.json()
             }
         })
-
+        .then(ws.close())
         .then(alert("XRP was deleted.Refresh the track page"))
 })
 

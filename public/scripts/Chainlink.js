@@ -6,7 +6,7 @@ ws.onmessage = (event) => {
     console.log(event.srcElement.url)
     let stockObject = JSON.parse(event.data);
     let price = parseFloat(stockObject.p * 75).toFixed(2)
-    stockPriceElement.innerText = "₹ "+parseFloat(stockObject.p * 75).toFixed(2);
+    stockPriceElement.innerText = "₹ " + parseFloat(stockObject.p * 75).toFixed(2);
 
     stockPriceElement.style.color = !lastPrice || lastPrice === price ? "gray" : price > lastPrice ? "#32CD32" : " #FF4433";
 
@@ -18,7 +18,7 @@ ws.onmessage = (event) => {
 }
 
 
-let deleteLink= document.getElementById("removeLink")
+let deleteLink = document.getElementById("removeLink")
 
 deleteLink.addEventListener("click", () => {
     fetch("/track", {
@@ -34,6 +34,7 @@ deleteLink.addEventListener("click", () => {
                 return res.json()
             }
         })
+        .then(ws.close())
 
         .then(alert("Chainlink was deleted. Refresh the track page"))
 })

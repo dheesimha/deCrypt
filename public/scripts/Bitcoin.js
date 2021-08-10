@@ -34,8 +34,9 @@ deleteBTC.addEventListener("click", () => {
                 return res.json()
             }
         })
-
+        .then(ws.close())
         .then(alert("Bitcoin was deleted.Refresh the track page"))
+
 })
 
 

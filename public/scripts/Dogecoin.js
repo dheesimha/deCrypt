@@ -34,7 +34,7 @@ deleteDoge.addEventListener("click", () => {
                 return res.json()
             }
         })
-
+        .then(ws.close())
         .then(alert("Dogecoin was deleted.Refresh the track page"))
 })
 
